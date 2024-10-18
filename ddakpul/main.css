@@ -94,3 +94,29 @@ p {
 .button_chzzk:hover {
     background-color: darkgreen;
 }
+
+#loginForm {
+    position: absolute;
+    margin: 20PX;
+    left: 0;
+    top: 0;
+    font-size: 10PX;
+}
+
+#login-username {
+    width: 15%;
+}
+
+#login-password {
+    width: 20%;
+}
+
+.button-container {
+    display: flex; 
+    margin-top: 10px; 
+}
+
+.toggle-link {
+    display: block;
+    margin-right: 10px;
+}
