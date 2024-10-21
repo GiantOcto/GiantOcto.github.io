@@ -4,46 +4,141 @@ html, body {
     margin: 0; 
 }
 
-.button_chim {
+.Banner {
+    display: flex;
+    background-color: rgb(155, 207, 96);
+    width: 100%;
+    height: 150px;
+    justify-content: space-between;
+}
+
+.login-container {
+    display: flex;
+    width: 20%;
+    height: 100%;
+    text-align: left;
+}
+
+#loginForm {
+    position: relative;
+    width: 70%;
+    margin: 20PX;
+    font-size: 10PX;
+}
+
+#login-username {
+    width: 100%;
+}
+
+#login-password {
+    width: 100%;
+}
+
+.Banner-container {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.Banner-image {
+    width: 100px;
+    height: 100px;
+    background-image: url(ddak.jpg);
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    margin-right: 3%;
+}
+
+.Banner-text {
+    text-align: center;
+    font-size: 60px;
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 1000;
+    color: azure;
+    font-style: normal;
+    margin-top: 1%;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.navbar li {
+    width: 15%;
     display: inline-block;
-    background-color: red;
-    border: 5px solid; border-radius: 30px;
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 1000;
+}
+
+.navbar a {
+    font-size: 20px;
+    text-decoration: none;
+    color: azure;
+}
+
+.Button-container {
+    width: 10%;
+    height: 100%;
+    text-align: right;
+    
+}
+.Button-container a {
+    text-decoration: none;
+}
+
+.button_chim, .button_chzzk {
+    display: inline-block;
+    width: calc(50% - 5px); 
+    height: 50%;
+    border: 5px solid;
+    border-radius: 20%;
     color: white;
-    padding: 15px 30px;
+    padding: 0px 10px;
     box-shadow: 8px 5px black;
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 5px; 
+}
+
+@media (max-width: 1000px) {
+    .button_chim, 
+    .button_chzzk {
+        font-size: 10px; 
+    }
+}
+
+.button_chim {
+    background-color: red; 
 }
 
 .button_chzzk {
-    display: inline-block;
     background-color: green;
-    border: 5px solid; border-radius: 30px;
-    color: white;
-    padding: 15px 30px;
-    box-shadow: 8px 5px black;
-    cursor: pointer;
-    margin-right: 5px;
 }
 
-.box {
-    width: 40vw;
-    height: 10vh;
-    margin-left: auto; margin-right: auto;    
-    border: 4px solid white; border-radius: 15px;  /*테두리*/
-    background-color: rgb(186, 199, 67);
+.button_chim:hover {
+    background-color: darkred;
 }
 
-p {
-    text-align: center;
-    font-family: arial;
-    font-size: 15px;
+.button_chzzk:hover {
+    background-color: darkgreen;
 }
 
-.container {
-    display: block;
+.left-menu {
     width: 40%;
-    margin-left: 60%;
+    height: 100%;
+    float: left;
+}
+
+.right-menu {
+    width: 60%;
+    height: 100%;
+    float: left;
 }
 
 .container-inline_block {
@@ -52,11 +147,9 @@ p {
     background-color: white;
     box-shadow: 5px 3px rgb(238, 236, 236);
     border-radius: 5px;
-    width: 25%;
+    width: 80%;
     height: auto;
-    position: relative;
-    top: -450px;
-    left: 10px;
+    margin: 3%;
 }
 
 .kakao_profile {
@@ -70,57 +163,12 @@ p {
     margin: 8px;
 }
 
-.header {
-    width: 100%;
-    height: 100px;
-    background-image: url("ddak.jpg");
-    background-size: contain;
-    background-position: center;
-    
-}
-
-.left-menu {
-    display: inline-block;
-    width: 30%;
-    height: 400px;
-    background-image: url("heart.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    vertical-align: top;
-   
-}
-
-.right {
-    display: inline-block;
-    width: 70%;
-    height: 400px;
-    background-image: url("cell.gif");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-   
-}
-
-.footer {
-    width: 100%;
-    height: 100px;
-    background: grey;
-    
-}
-
-.button_chim:hover {
-    background-color: darkred;
-}
-
-.button_chzzk:hover {
-    background-color: darkgreen;
-}
-
 .Review-Board {
-    margin: 0 0 0 15px;
-    position: relative; 
-    top: -480px;
+    margin: 30px 0 0 15px;
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    font-style: normal;
 } 
 .User-name {
     font-size: 12px;
@@ -142,22 +190,7 @@ p {
     text-align: left;
     margin-left: 15px;
     margin-right: 15px;
-}
-
-#loginForm {
-    position: absolute;
-    margin: 20PX;
-    left: 0;
-    top: 0;
-    font-size: 10PX;
-}
-
-#login-username {
-    width: 15%;
-}
-
-#login-password {
-    width: 20%;
+    margin-bottom: 15px;
 }
 
 .button-container {
@@ -170,3 +203,64 @@ p {
     margin-right: 10px;
 }
 
+.Video_Week {
+    margin: 30px 0 0 15px;
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.thumbnail_1 {
+    display: inline-block;
+    width: 30%; 
+    height: 30%; 
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 30%; 
+    background-image: url(https://img.youtube.com/vi/lyUa0ZU_4Qk/hqdefault.jpg);
+    text-decoration: none; 
+    margin-right: 1%; 
+}
+
+.thumbnail_2 {
+    display: inline-block;
+    width: 30%; 
+    height: 30%; 
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 30%; 
+    background-image: url(https://img.youtube.com/vi/j4g8HhbiPc0/hqdefault.jpg);
+    text-decoration: none; 
+    margin-right: 1%; 
+}
+
+.thumbnail_3 {
+    display: inline-block;
+    width: 30%; 
+    height: 30%; 
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 30%; 
+    background-image: url(https://img.youtube.com/vi/foKiP7CmlTo/hqdefault.jpg);
+    text-decoration: none; 
+    margin-right: 1%; 
+}
+
+@media (max-width: 1000px) {
+    @media (orientation: portrait) {
+        .thumbnail_1,
+        .thumbnail_2,
+        .thumbnail_3 {
+            height: 15%;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .thumbnail_1,
+        .thumbnail_2,
+        .thumbnail_3 {
+            height: 30%;
+        }
+    }
+}

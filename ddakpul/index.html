@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+    </style>
     <meta charset="UTF-8">
     <title>친 하 하</title>
     <link href="main.css" rel="stylesheet">
 </head>
 
-<body style="background-color: rgb(199, 207, 128);">
+<body style="background-color: #FFCC80;">
 
-    <div class="container" style="font-size: 0;">
-        <div class="header"></div>
-        <div class="left-menu"></div>
-        <div class="right"></div>
-        <div class="footer">
+<div class="Banner">
+    <div class="login-container">
+        <form id="loginForm">           
+        <label for="login-username">아이디:</label>
+        <input type="text" id="login-username" placeholder="" required>
+        <label for="login-password">비밀번호:</label>
+        <input type="password" id="login-password" placeholder="" required>
+        <div class="button-container">
+            <button type="submit" class="toggle-link">로그인</button>
+            <button type="button" class="toggle-link">회원가입</button>
+        </div>
+        </form>  
+    </div>
+
+    <div class="Banner-container">
+        <div class="Banner-image"></div>
+        <h1 class="Banner-text">친하하</h1> 
+        <nav style=" width: 70%; height: 100%;">
+            <ul class="navbar">
+                <li><a href="#">인기게시글</a></li>
+                <li><a href="#">전체게시글</a></li>
+                <li><a href="#">자유게시판</a></li>
+                <li><a href="#">이벤트</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="Button-container ">
             <a href="https://www.youtube.com/channel/UCUj6rrhMTR9pipbAWBAMvUQ">
                 <button class="button_chim">
                     <p>침투부</p>
@@ -23,11 +50,12 @@
                     <p>치지직</p>
                 </button>
             </a>
-        </div>
-    </div>
+    </div>    
+</div>
 
+<div class="left-menu" >
     <h1 class="Review-Board">후기 게시판</h1>
-    <div class="container-inline_block">
+    <div class="container-inline_block" style="vertical-align: top;">
         <div class="kakao_profile"></div>
         <div style="display: inline-block; vertical-align: top;">
             <h2 class="User-name">곤돌라</h2>
@@ -38,18 +66,17 @@
            아닌 봄을 타고있었어요... 하루하루 시간이 무의미하게 흘러가는거같고 재미있는걸 찾지못해 이리저리
            헤메는사람처럼 즐거운걸 못찾고있...
         </p>
-     </div>   
+     </div>  
+</div>
 
-        <form id="loginForm">           
-            <label for="login-username">아이디:</label>
-            <input type="text" id="login-username" placeholder="" required>
-            <label for="login-password">비밀번호:</label>
-            <input type="password" id="login-password" placeholder="" required>
-            <div class="button-container">
-                <button type="submit" class="toggle-link">로그인</button>
-                <button type="button" class="toggle-link">회원가입</button>
-            </div>
-        </form>  
+<div class="right-menu">
+     <h1 class="Video_Week">금주의 추천 영상</h1>
+     <a href="https://www.youtube.com/watch?v=lyUa0ZU_4Qk" target="_blank" class="thumbnail_1"></a>
 
+     <a href="https://www.youtube.com/watch?v=j4g8HhbiPc0" target="_blank" class="thumbnail_2"></a>
+
+     <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
+</div>
+     
 </body>
 </html>
