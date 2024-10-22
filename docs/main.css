@@ -62,13 +62,19 @@ html, body {
     margin-top: 1%;
 }
 
+@media (max-width: 1000px) {
+    .Banner-text  {
+        font-size: 40px;
+    }
+}
+
 .navbar {
     display: flex;
     width: 100%;
     height: 100%;
 }
 .navbar li {
-    width: 15%;
+    width: 20%;
     display: inline-block;
     font-family: "Nanum Pen Script", cursive;
     font-weight: 1000;
@@ -264,3 +270,4 @@ html, body {
         }
     }
 }
+
