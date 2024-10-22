@@ -52,7 +52,7 @@ html, body {
     margin-right: 3%;
 }
 
-.alert-box {
+.developer-profile {
     background-color: rgb(243, 245, 241);
     padding: 20px;
     color: rgb(3, 3, 3);
@@ -61,7 +61,7 @@ html, body {
     position: absolute; 
     top: 21%; 
     left: 23%; 
-    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    transform: translate(-50%, -50%); 
     z-index: 1000;
     font-family: 'Dongle', sans-serif;
     font-size: 30px;
@@ -69,7 +69,7 @@ html, body {
     font-style: normal;
 }
 
-.alert-box p {
+.developer-profile p {
     margin: 0;
 }
 
@@ -172,6 +172,24 @@ html, body {
     height: 100%;
     float: left;
 }
+
+.alert-box {
+    background-color: #e7e7e7; 
+    color: #c70f0f; 
+    display: none; 
+    width: 100px; 
+    height: 100px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    position: absolute; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+    top: 95%;
+}
+
+
 
 .container-inline_block {
     display: inline-block;

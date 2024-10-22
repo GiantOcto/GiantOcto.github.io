@@ -27,8 +27,8 @@
     </div>
 
     <div class="Banner-container">
-        <button onclick="document.querySelector('.alert-box').style.display='inline-block'; " class="Banner-image"></button>
-        <h1 class="Banner-text">친하하</h1> 
+        <button onclick="버튼여닫기('developer-profile','block')" class="Banner-image"></button>
+        <h1 class="Banner-text" onclick="버튼토글('profile')">친하하</h1> 
         <nav style=" width: 70%; height: 100%;">
             <ul class="navbar">
                 <li><a href="#">인기게시글</a></li>
@@ -53,8 +53,8 @@
     </div>    
 </div>
 
-<div class="alert-box">
-    <button onclick="document.querySelector('.alert-box').style.display='none' " class="x-button">x</button>
+<div id="profile" class="developer-profile">
+    <button onclick="버튼여닫기('developer-profile','none')" class="x-button">x</button>
     <p>친칠라 <span style="font-size: 15px;"> 프론트엔드 개발자 | React, Vue.js</span></p>
     <p>E-Mail : wlsrb0922@naver.com</p>
 </div> 
@@ -84,5 +84,55 @@
      <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
 </div>
 
+
+<button id="btn1">
+    <p>버튼 1</p>
+    <div class="alert-box" id="box1">
+        <p>본문</p>
+    </div>
+</button>
+
+<button id="btn2">
+    <P>버튼 2</P>
+    <div class="alert-box" id="box2">
+        <p>본문</p>
+    </div>
+</button>
+
+<script> 
+
+     function 버튼여닫기(클래스명, 내용) {
+    var elements = document.getElementsByClassName(클래스명);
+    
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 내용; 
+        }
+    }
+
+    function 버튼토글(요소) {
+    var element = document.getElementById(요소);
+    
+    if (element.style.display === 'none' || element.style.display === '') {
+        element.style.display = 'block'; 
+    } else {
+        element.style.display = 'none'; 
+           }
+    }
+
+    function 내용변경(요소, 내용) {
+    document.getElementById(요소).innerText = 내용;
+    }
+
+    document.getElementById('btn1').addEventListener('click', () => {
+        버튼토글('box1',);
+        내용변경('box1','안녕하세오')
+    });
+
+    document.getElementById('btn2').addEventListener('click', () => {
+        버튼토글('box2');
+        내용변경('box2','반갑습니다')
+    });
+
+</script>
 </body>
 </html>
