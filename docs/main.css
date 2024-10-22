@@ -52,6 +52,32 @@ html, body {
     margin-right: 3%;
 }
 
+.alert-box {
+    background-color: rgb(243, 245, 241);
+    padding: 20px;
+    color: rgb(3, 3, 3);
+    border-radius: 5px;
+    display: none; 
+    position: absolute; 
+    top: 21%; 
+    left: 23%; 
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    z-index: 1000;
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.alert-box p {
+    margin: 0;
+}
+
+.x-button {
+    float: right;
+    background-color: rgb(243, 245, 241);
+}
+
 .Banner-text {
     text-align: center;
     font-size: 60px;
@@ -153,7 +179,7 @@ html, body {
     background-color: white;
     box-shadow: 5px 3px rgb(238, 236, 236);
     border-radius: 5px;
-    width: 80%;
+    width: 60%;
     height: auto;
     margin: 3%;
 }
