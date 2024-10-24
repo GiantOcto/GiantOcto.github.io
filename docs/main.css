@@ -95,8 +95,8 @@ html, body {
 }
 
 .navbar {
-    display: flex;
-    width: 100%;
+    display: inline-block;
+    width: 80%;
     height: 100%;
 }
 .navbar li {
@@ -104,6 +104,25 @@ html, body {
     display: inline-block;
     font-family: "Nanum Pen Script", cursive;
     font-weight: 1000;
+}
+
+.weatherbar {
+    display: inline-block;
+    width: 20%;
+    height: 70%;
+    color: white;
+}
+
+.weatherbar dd {
+    margin: 7%;
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 110%;
+}
+
+.weather-icon {
+    width: 10%; /* 원하는 크기로 조정 */
+    height: 10%; /* 원하는 크기로 조정 */
+
 }
 
 .navbar a {
