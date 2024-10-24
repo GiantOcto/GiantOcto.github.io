@@ -27,15 +27,21 @@
     </div>
 
     <div class="Banner-container">
-        <button onclick="버튼여닫기('developer-profile','block')" class="Banner-image"></button>
-        <h1 class="Banner-text" onclick="버튼토글('profile')">친하하</h1> 
-        <nav style=" width: 70%; height: 100%;">
+        <button onclick="buttonOnOff('developer-profile','block')" class="Banner-image"></button>
+        <h1 class="Banner-text" onclick="buttonToggle('profile')">친하하</h1> 
+        <nav style=" width: 70%; height: 100%; display: flex;">
             <ul class="navbar">
                 <li><a href="#">인기게시글</a></li>
                 <li><a href="#">전체게시글</a></li>
                 <li><a href="#">자유게시판</a></li>
                 <li><a href="#">이벤트</a></li>
             </ul>
+              <dl class="weatherbar">
+                <dd class="place"></dd>
+                <dd class="temperature"></dd>
+                <dd class="description"></dd>      
+                
+              </dl>
         </nav>
     </div>
 
@@ -54,7 +60,7 @@
 </div>
 
 <div id="profile" class="developer-profile">
-    <button onclick="버튼여닫기('developer-profile','none')" class="x-button">x</button>
+    <button onclick="buttonOnOff('developer-profile','none')" class="x-button">x</button>
     <p>친칠라 <span style="font-size: 15px;"> 프론트엔드 개발자 | React, Vue.js</span></p>
     <p>E-Mail : wlsrb0922@naver.com</p>
 </div> 
@@ -84,7 +90,6 @@
      <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
 </div>
 
-
 <button id="btn1">
     <p>버튼 1</p>
     <div class="alert-box" id="box1">
@@ -101,7 +106,7 @@
 
 <script> 
 
-     function 버튼여닫기(클래스명, 내용) {
+     function buttonOnOff(클래스명, 내용) {
     var elements = document.getElementsByClassName(클래스명);
     
     for (var i = 0; i < elements.length; i++) {
@@ -109,7 +114,7 @@
         }
     }
 
-    function 버튼토글(요소) {
+    function buttonToggle(요소) {
     var element = document.getElementById(요소);
     
     if (element.style.display === 'none' || element.style.display === '') {
@@ -119,20 +124,68 @@
            }
     }
 
-    function 내용변경(요소, 내용) {
+    function textChange(요소, 내용) {
     document.getElementById(요소).innerText = 내용;
     }
 
     document.getElementById('btn1').addEventListener('click', () => {
-        버튼토글('box1',);
-        내용변경('box1','안녕하세오')
+        buttonToggle('box1',);
+        textChange('box1','안녕하세오')
     });
 
     document.getElementById('btn2').addEventListener('click', () => {
-        버튼토글('box2');
-        내용변경('box2','반갑습니다')
+        buttonToggle('box2');
+        textChange('box2','반갑습니다')
     });
 
+    const tempSection = document.querySelector('.temperature');
+    const placeSection = document.querySelector('.place');
+    const descSection = document.querySelector('.description');
+    const API_KEY = '5eac919650d7cf8b33e02a273b7abdc6'; 
+
+
+    window.onload = () => {
+            navigator.geolocation.getCurrentPosition(success, fail);
+        };
+
+    const success = (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            getWeather(latitude, longitude);
+        };
+
+    const fail = () => {
+            alert("좌표를 받아올 수 없음");
+        };
+
+    const getWeather = (lat, lon) => {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(json => {
+                    const temperature = json.main.temp; 
+                    const place = json.name; 
+                    const description = json.weather[0].description; 
+                    const icon = json.weather[0].icon;
+                    const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                
+
+                    tempSection.innerText = `현재 기온: ${temperature}°C`;
+                    placeSection.innerText = `위치: ${place}`;
+                    descSection.innerHTML = `날씨: ${description} <img src="${iconURL}" alt="날씨 아이콘" class="weather-icon">`;              
+                })
+                .catch(error => {
+                    alert("날씨 정보를 가져오는 데 오류가 발생했습니다.");
+                    console.error('API 호출 중 오류:', error);
+                });
+        };
+
+        
 </script>
 </body>
 </html>
