@@ -172,8 +172,7 @@
                     const place = json.name; 
                     const description = json.weather[0].description; 
                     const icon = json.weather[0].icon;
-                    const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-                
+                    const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
                     tempSection.innerText = `현재 기온: ${temperature}°C`;
                     placeSection.innerText = `위치: ${place}`;
