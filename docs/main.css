@@ -4,6 +4,10 @@ html, body {
     margin: 0; 
 }
 
+div {
+    box-sizing: border-box;
+}
+
 .Banner {
     display: flex;
     background-color: rgb(155, 207, 96);
@@ -34,11 +38,12 @@ html, body {
     width: 100%;
 }
 
+
 .Banner-container {
     display: flex;
     width: 70%;
     height: 100%;
-    text-align: center;
+    text-align: cover;
     align-items: center;
 }
 
@@ -186,30 +191,6 @@ html, body {
     float: left;
 }
 
-.right-menu {
-    width: 60%;
-    height: 100%;
-    float: left;
-}
-
-.alert-box {
-    background-color: #e7e7e7; 
-    color: #c70f0f; 
-    display: none; 
-    width: 100px; 
-    height: 100px; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    position: absolute; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    font-family: 'Dongle', sans-serif;
-    font-size: 30px;
-    top: 95%;
-}
-
-
-
 .container-inline_block {
     display: inline-block;
     overflow: hidden;
@@ -262,6 +243,54 @@ html, body {
     margin-bottom: 15px;
 }
 
+.maplestory {
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-color: white;
+    box-shadow: 5px 3px rgb(238, 236, 236);
+    border-radius: 5px;
+    width: 30%;
+    margin: 3%;
+    padding: 15px; /* 안쪽 여백 추가 */
+    display: inline-block; /* 내용에 맞게 크기 조정 */
+    height: auto; /* 자동 높이 조정 */
+    overflow: hidden; /* 내부 내용으로 높이 조정 */
+}
+
+.right-menu {
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+
+.container-youtube {
+    width: 100%;
+    height: 70%;
+    margin: 0;
+}
+
+.container-lol {
+    width: 100%;
+    height: 30%;
+    margin: 0;
+}
+
+.alert-box {
+    background-color: #e7e7e7; 
+    color: #c70f0f; 
+    display: none; 
+    width: 100px; 
+    height: 100px; 
+    padding: 10px; 
+    border: none;
+    border-radius: 5px; 
+    position: absolute; 
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+    top: 95%;
+}
+
 .button-container {
     display: flex; 
     margin-top: 10px; 
@@ -282,7 +311,7 @@ html, body {
 
 .thumbnail_1 {
     display: inline-block;
-    width: 30%; 
+    width: 25%; 
     height: 30%; 
     background-size: cover; 
     background-position: center; 
@@ -294,7 +323,7 @@ html, body {
 
 .thumbnail_2 {
     display: inline-block;
-    width: 30%; 
+    width: 25%; 
     height: 30%; 
     background-size: cover; 
     background-position: center; 
@@ -306,7 +335,7 @@ html, body {
 
 .thumbnail_3 {
     display: inline-block;
-    width: 30%; 
+    width: 25%; 
     height: 30%; 
     background-size: cover; 
     background-position: center; 

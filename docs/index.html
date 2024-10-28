@@ -78,16 +78,27 @@
            아닌 봄을 타고있었어요... 하루하루 시간이 무의미하게 흘러가는거같고 재미있는걸 찾지못해 이리저리
            헤메는사람처럼 즐거운걸 못찾고있...
         </p>
-     </div>  
+        </div>  
+       
+        <h1 class="Review-Board">캐릭터 정보 조회</h1>
+    <div class="maplestory">
+        <input type="text" id="characterName" placeholder="캐릭터 이름 입력">
+        <button id="fetchButton">조회</button>
+        <div id="result"></div>
+    </div>        
+
 </div>
 
 <div class="right-menu">
+    <div class="container-youtube">
      <h1 class="Video_Week">금주의 추천 영상</h1>
      <a href="https://www.youtube.com/watch?v=lyUa0ZU_4Qk" target="_blank" class="thumbnail_1"></a>
 
      <a href="https://www.youtube.com/watch?v=j4g8HhbiPc0" target="_blank" class="thumbnail_2"></a>
 
      <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
+    </div>
+
 </div>
 
 <button id="btn1">
@@ -183,6 +194,71 @@
                     console.error('API 호출 중 오류:', error);
                 });
         };
+
+    //  메이플 캐릭터 조회   
+    const apiKey = 'test_c7337b0ef3b66f24b010dac01b1ece2abc7e159a1ea2b239b382cbe52ac74502efe8d04e6d233bd35cf2fabdeb93fb0d';
+
+document.getElementById('fetchButton').onclick = function() {
+    const characterName = document.getElementById('characterName').value;
+    const encodedName = encodeURIComponent(characterName);
+    const idUrl = `https://open.api.nexon.com/maplestory/v1/id?character_name=${encodedName}`;
+
+    // 1단계: 캐릭터 이름으로 OCID 검색
+    fetch(idUrl, {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            'x-nxopen-api-key': apiKey,
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // OCID 추출
+        const ocid = data.ocid;
+        if (!ocid) {
+            throw new Error('OCID를 찾을 수 없습니다.');
+        }
+        
+    // 2단계: OCID로 캐릭터 정보 검색
+        const characterInfoUrl = `https://open.api.nexon.com/maplestory/v1/character/basic?ocid=${ocid}`;
+        
+        return fetch(characterInfoUrl, {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                'x-nxopen-api-key': apiKey,
+            }
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(characterData => {
+        // 결과를 화면에 표시
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <p>이름: ${characterData.character_name}</p>
+            <p>서버: ${characterData.world_name}</p>
+            <p>성별: ${characterData.character_gender}</p>
+            <p>직업: ${characterData.character_class}</p>
+            <p>레벨: ${characterData.character_level}</p>
+            <img src="${characterData.character_image}" alt="${characterData.character_name}" />
+        `;
+    })
+    .catch(error => {
+        console.error('Error fetching character data:', error);
+        document.getElementById('result').innerHTML = `<p>오류 발생: ${error.message}</p>`;
+    });
+};
+       
 
         
 </script>
