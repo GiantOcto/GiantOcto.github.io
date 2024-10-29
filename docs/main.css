@@ -276,6 +276,12 @@ div {
     overflow-x: hidden; 
 }
 
+@media (max-width: 1000px) {
+    .characterBox .equipmentBox {
+        width: 15%;
+    }
+}
+
 .right-menu {
     width: 60%;
     height: 100%;
