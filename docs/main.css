@@ -277,7 +277,8 @@ div {
 }
 
 @media (max-width: 1000px) {
-    .characterBox .equipmentBox {
+    .characterBox,
+    .equipmentBox {
         width: 15%;
     }
 }
