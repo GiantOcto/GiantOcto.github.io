@@ -243,7 +243,7 @@ div {
     margin-bottom: 15px;
 }
 
-.maplestory {
+.characterBox {
     font-family: 'Dongle', sans-serif;
     font-weight: 700;
     text-align: center;
@@ -251,11 +251,29 @@ div {
     box-shadow: 5px 3px rgb(238, 236, 236);
     border-radius: 5px;
     width: 30%;
+    min-width: 200PX;
     margin: 3%;
     padding: 15px; /* 안쪽 여백 추가 */
     display: inline-block; /* 내용에 맞게 크기 조정 */
     height: auto; /* 자동 높이 조정 */
     overflow: hidden; /* 내부 내용으로 높이 조정 */
+}
+
+.equipmentBox {
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-color: white;
+    box-shadow: 5px 3px rgb(238, 236, 236);
+    border-radius: 5px;
+    width: 30%;
+    min-width: 200PX;
+    margin: 3%;
+    padding: 15px; 
+    display: none; 
+    height: 405px; 
+    overflow-y: scroll; 
+    overflow-x: hidden; 
 }
 
 .right-menu {

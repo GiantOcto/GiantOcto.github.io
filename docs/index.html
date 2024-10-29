@@ -81,11 +81,17 @@
         </div>  
        
         <h1 class="Review-Board">캐릭터 정보 조회</h1>
-    <div class="maplestory">
+<div>
+    <div class="characterBox">
         <input type="text" id="characterName" placeholder="캐릭터 이름 입력">
         <button id="fetchButton">조회</button>
-        <div id="result"></div>
-    </div>        
+        <div id="character_result"></div>
+    </div> 
+    
+    <div class="equipmentBox" id="equipment">
+        <div id="equipment_result"></div>
+    </div>
+</div>
 
 </div>
 
@@ -195,8 +201,7 @@
                 });
         };
 
-    //  메이플 캐릭터 조회   
-    const apiKey = 'test_c7337b0ef3b66f24b010dac01b1ece2abc7e159a1ea2b239b382cbe52ac74502efe8d04e6d233bd35cf2fabdeb93fb0d';
+        const apiKey = 'test_c7337b0ef3b66f24b010dac01b1ece2abc7e159a1ea2b239b382cbe52ac74502efe8d04e6d233bd35cf2fabdeb93fb0d';
 
 document.getElementById('fetchButton').onclick = function() {
     const characterName = document.getElementById('characterName').value;
@@ -224,7 +229,7 @@ document.getElementById('fetchButton').onclick = function() {
             throw new Error('OCID를 찾을 수 없습니다.');
         }
         
-    // 2단계: OCID로 캐릭터 정보 검색
+        // 2단계: OCID로 캐릭터 정보 검색
         const characterInfoUrl = `https://open.api.nexon.com/maplestory/v1/character/basic?ocid=${ocid}`;
         
         return fetch(characterInfoUrl, {
@@ -233,31 +238,65 @@ document.getElementById('fetchButton').onclick = function() {
                 'accept': 'application/json',
                 'x-nxopen-api-key': apiKey,
             }
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(characterData => {
+            // 결과를 화면에 표시
+            const resultDiv = document.getElementById('character_result');
+            resultDiv.innerHTML = `
+                <p>이름: ${characterData.character_name}</p>
+                <p>서버: ${characterData.world_name}</p>
+                <p>성별: ${characterData.character_gender}</p>
+                <p>직업: ${characterData.character_class}</p>
+                <p>레벨: ${characterData.character_level}</p>
+                <img src="${characterData.character_image}" alt="${characterData.character_name}" />
+            `;
+
+            // 3단계: OCID로 장비 정보 검색
+            const equipmentUrl = `https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=${ocid}`;
+            return fetch(equipmentUrl, {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                    'x-nxopen-api-key': apiKey,
+                }
+            });
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(equipmentData => {
+            // 장비 정보 처리
+            const equipmentDiv = document.getElementById('equipment_result');
+            const equipmentBox = document.getElementById('equipment');
+
+            // 장비 정보를 지우고 새로 추가
+            equipmentDiv.innerHTML = ''; // 이전 정보를 클리어
+
+            // item_equipment 배열에서 각 아이템 정보 출력
+            equipmentData.item_equipment.forEach(item => {
+                equipmentDiv.innerHTML += `
+                    <div>
+                        <h3>${item.item_equipment_part}</h3>
+                        <p>이름: ${item.item_name}</p>
+                        <img src="${item.item_icon}" alt="${item.item_name}" />                       
+                    </div>
+                `;
+            });
+
+            equipmentBox.style.display = 'inline-block';
         });
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(characterData => {
-        // 결과를 화면에 표시
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `
-            <p>이름: ${characterData.character_name}</p>
-            <p>서버: ${characterData.world_name}</p>
-            <p>성별: ${characterData.character_gender}</p>
-            <p>직업: ${characterData.character_class}</p>
-            <p>레벨: ${characterData.character_level}</p>
-            <img src="${characterData.character_image}" alt="${characterData.character_name}" />
-        `;
-    })
     .catch(error => {
-        console.error('Error fetching character data:', error);
-        document.getElementById('result').innerHTML = `<p>오류 발생: ${error.message}</p>`;
+        console.error('Error fetching data:', error);
+        document.getElementById('character_result').innerHTML = `<p>오류 발생: ${error.message}</p>`;
     });
 };
+
        
 
         
