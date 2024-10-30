@@ -62,11 +62,51 @@
 
     <div class="contactus-input-container">
         <form id="sendform">
-            <input type="checkbox">Subscribe
+            <input id="check" type="checkbox"><label for="check">Subscribe</label>
             <button type="submit" class="button-send">SEND</button>
         </form>
     </div>
+
  </div>   
+
+ <div class="shopcart" id="shopcart">
+    <div class="shopcart-top"><h1>Your shopping cart </h1></div>
+    <div class="cart-box">
+    <table>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>ITEM</td>
+                <td>AMOUNT</td>
+                <td>PRICE</td>
+                <td>TOTAL</td>
+            </tr>
+            <tr>
+                <td><img src="camera.png" width="40px"></td>
+                <td>카메라</td>
+                <td>1</td>
+                <td>€ 1979.00</td>
+                <td>€ 1979.00</td>
+            </tr>
+            <tr>
+                <td><img src="airpod.png" width="40px"></td>
+                <td>에어팟</td>
+                <td>1</td>
+                <td>€ 989.00</td>
+                <td>€ 989.00</td>
+            </tr>
+            <tr>
+                <td colspan='5'>€ 2968.00</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="shopcart-bottom">
+        <a style="vertical-align: top;">Edit your shopping cart</a>
+        <button class="button-paymentmethod">Choose payment method</button>
+    </div>
+ </div>
 
     <div class="Banner-container">
         <button onclick="buttonOnOff('developer-profile','block')" class="Banner-image"></button>
@@ -77,6 +117,7 @@
                 <li><a href="#">전체게시글</a></li>
                 <li><a href="#">자유게시판</a></li>
                 <li><a href="#">이벤트</a></li>
+                <li><p id="btn1">장바구니</p></li>
             </ul>
               <dl class="weatherbar">
                 <dd class="place"></dd>
@@ -149,19 +190,6 @@
 
 </div>
 
-<button id="btn1">
-    <p>버튼 1</p>
-    <div class="alert-box" id="box1">
-        <p>본문</p>
-    </div>
-</button>
-
-<button id="btn2">
-    <P>버튼 2</P>
-    <div class="alert-box" id="box2">
-        <p>본문</p>
-    </div>
-</button>
 
 <script> 
 
@@ -188,14 +216,9 @@
     }
 
     document.getElementById('btn1').addEventListener('click', () => {
-        buttonToggle('box1',);
-        textChange('box1','안녕하세오')
+        buttonToggle('shopcart',); 
     });
 
-    document.getElementById('btn2').addEventListener('click', () => {
-        buttonToggle('box2');
-        textChange('box2','반갑습니다')
-    });
 
     const tempSection = document.querySelector('.temperature');
     const placeSection = document.querySelector('.place');
