@@ -227,7 +227,6 @@ div, input, textarea {
 
 .shopcart {
     display: none;
-    display: flex;
     width: 800px;
     height: 500px;
     position: absolute;
