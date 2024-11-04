@@ -6,6 +6,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
     </style>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>친 하 하</title>
     <link href="main.css" rel="stylesheet">
 </head>
@@ -180,7 +181,7 @@
 
 <div class="right-menu">
     <div class="container-youtube">
-     <h1 class="Video_Week">금주의 추천 영상</h1>
+     <h1>금주의 추천 영상</h1>
      <a href="https://www.youtube.com/watch?v=lyUa0ZU_4Qk" target="_blank" class="thumbnail_1"></a>
 
      <a href="https://www.youtube.com/watch?v=j4g8HhbiPc0" target="_blank" class="thumbnail_2"></a>
@@ -188,6 +189,34 @@
      <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
     </div>
 
+    <div class="game-container"></div>
+    <div class="mini-game">
+        <div>
+            <h1>미니 게임</h1>
+                <div class="game">
+                    <p id="remainingAttempts">남은 횟수: 8</p>
+                    <button id="btn2" class="mini-game-rule">규칙</button>
+                </div>
+            <input class="input text" maxlength="1">
+            <input class="input text" maxlength="1">
+        </div>
+
+        <div class="result">
+            <div id="consonantsDisplay"></div>
+            <div id="vowelsDisplay"></div>
+            <div id="finalConsonantsDisplay"></div>
+        </div>
+    </div>
+    <button id="button-minigame">제출</button>
+
+    <div id="rulebook" class="rulebook">
+        <p>정확히 일치 - 초록</p>
+        <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - 분홍</p>
+        <p>자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 - 하늘</p>
+        <p>자음과 모음 중 하나만 일치 - 보라</p>
+        <p>하나도 일치하지 않음 - 빨강</p>
+    </div>
+    
 </div>
 
 
@@ -216,7 +245,11 @@
     }
 
     document.getElementById('btn1').addEventListener('click', () => {
-        buttonToggle('shopcart',); 
+        buttonToggle('shopcart'); 
+    });
+
+    document.getElementById('btn2').addEventListener('click', () => {
+        buttonToggle('rulebook'); 
     });
 
 
@@ -363,9 +396,130 @@ document.getElementById('fetchButton').onclick = function() {
     });
 };
 
-       
+// 미니 게임 파트
 
-        
+var 답 = '수박'; // 정답
+var attempts = 0; // 제출 기회를 카운트하는 변수
+var maxAttempts = 8; // 최대 제출 기회
+
+function updateRemainingAttempts() {
+    document.getElementById('remainingAttempts').innerHTML = '남은 횟수: ' + (maxAttempts - attempts);
+}
+
+document.getElementById('button-minigame').addEventListener('click', function() {
+    if (attempts >= maxAttempts) {
+        alert('더 이상 제출할 수 없습니다. 최대 제출 기회를 초과했습니다.'); // 제출 기회 초과 메시지
+        return; // 함수 종료
+    }
+
+    var inputs = document.querySelectorAll('.input');
+    // 이전 결과 지우기
+    document.getElementById('consonantsDisplay').innerHTML = '';
+    document.getElementById('vowelsDisplay').innerHTML = '';
+    document.getElementById('finalConsonantsDisplay').innerHTML = '';
+
+    // 정답을 초성, 중성, 종성으로 쪼개기
+    var 답결과 = splitHangul(답);
+    var 답초성 = 답결과.consonants;
+    var 답중성 = 답결과.vowels;
+    var 답종성 = 답결과.finalConsonants;
+
+    // 입력 값 비교
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove('correct', 'partially_correct_1', 'partially_correct_2', 'one_match', 'reverse_match', 'wrong'); // 이전 클래스 제거
+
+        var inputWord = inputs[i].value; // 현재 입력 필드의 값
+        var input결과 = splitHangul(inputWord); // 현재 입력 값을 쪼개서 저장
+
+        let currentColor = 'wrong'; // 기본 색상은 빨간색 (오답)
+
+        // 초성, 중성, 종성을 비교
+        const 초성일치 = input결과.consonants[0] === 답초성[i];
+        const 중성일치 = input결과.vowels[0] === 답중성[i];
+        const 종성일치 = input결과.finalConsonants[0] === 답종성[i] && (input결과.finalConsonants[0] !== '' && 답종성[i] !== '');
+        const 종성이없음 = 답종성[i] === '' && input결과.finalConsonants[0] === '';
+
+        // 조건에 따른 색상 설정
+        if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
+            currentColor = 'correct'; // 정답
+        } else if (초성일치 && (중성일치 || 종성일치)) {
+            currentColor = 'partially_correct_1'; // 초성이 일치하고 중성일치 또는 종성일치 
+        } else if (!초성일치 && (중성일치 && (종성일치 || 종성이없음))) {
+            currentColor = 'partially_correct_2'; // 초성이 불일치하고 중성일치 또는 종성일치 또는 둘 다 종성이 없음
+        } else if (초성일치 || 중성일치 || 종성일치) {
+            currentColor = 'one_match'; // 초성 중성 종성 중 받침이 없음 중 1개만 일치
+        } else {
+            currentColor = 'wrong'; // 모든 것이 불일치
+        }
+
+        // 현재 입력 필드에 해당 색상 클래스 추가
+        inputs[i].classList.add(currentColor);
+        inputs[i].classList.remove('input');
+
+        // 각 입력 필드에 대한 결과를 표시
+    }
+
+    // 제출 기회 증가
+    attempts++;
+    updateRemainingAttempts(); // 남은 횟수 업데이트
+
+    // 새로운 입력 필드 추가
+    var template = `<div>
+        <input class="input text" maxlength="1">
+        <input class="input text" maxlength="1">
+    </div>`;
+    document.querySelector('.mini-game').insertAdjacentHTML('beforeend', template);
+
+    // 새 입력 필드에 이벤트 리스너 추가
+    addInputListeners();
+});
+
+// 입력 필드의 길이를 1자로 제한하는 함수
+function addInputListeners() {
+    var inputs = document.querySelectorAll('.input');
+
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value.length > 1) {
+                input.value = input.value.charAt(0); // 1자 이상 입력할 수 없도록 제한
+            }
+        });
+    });
+}
+
+// 한글의 초성, 중성, 종성을 분리하는 함수
+function splitHangul(hangul) {
+    const consonants = [];
+    const vowels = [];
+    const finalConsonants = []; // 종성을 저장할 배열
+
+    for (let char of hangul) {
+        const code = char.charCodeAt(0);
+        // 한글 음절의 유니코드 범위
+        if (code >= 0xAC00 && code <= 0xD7A3) {
+            const base = code - 0xAC00;
+            const cho = Math.floor(base / (21 * 28)); // 초성 인덱스
+            const jung = Math.floor((base % (21 * 28)) / 28); // 중성 인덱스
+            const jong = base % 28; // 종성 인덱스
+
+            consonants.push(String.fromCharCode(0x1100 + cho)); // 초성
+            vowels.push(String.fromCharCode(0x1161 + jung)); // 중성
+            if (jong > 0) {
+                finalConsonants.push(String.fromCharCode(0x11A7 + jong)); // 종성
+            } else {
+                finalConsonants.push(''); // 종성이 없는 경우 빈 문자열 추가
+            }
+        } else {
+            // 한글이 아닐 경우
+            consonants.push(char); // 다른 문자는 그대로 추가
+        }
+    }
+
+    return { consonants, vowels, finalConsonants }; // 초성, 중성, 종성을 반환
+}
+
+// 처음 입력 필드에 리스너를 추가합니다.
+addInputListeners();
 </script>
 </body>
 </html>

@@ -243,6 +243,7 @@ div, input, textarea {
 }
 
 .shopcart h1 {
+    vertical-align: middle;
     color: rgb(26, 26, 104);
     font-size: 20px;
 }
@@ -496,7 +497,7 @@ td {
 
 .container-youtube {
     width: 100%;
-    height: 70%;
+    height: 30%;
     margin: 0;
 }
 
@@ -526,7 +527,7 @@ td {
 }
 
 
-.Video_Week {
+.right-menu h1 {
     margin: 30px 0 0 15px;
     font-size: 30px;
     font-family: 'Dongle', sans-serif;
@@ -537,7 +538,7 @@ td {
 .thumbnail_1 {
     display: inline-block;
     width: 25%; 
-    height: 30%; 
+    height: 70%; 
     background-size: cover; 
     background-position: center; 
     border-radius: 30%; 
@@ -549,7 +550,7 @@ td {
 .thumbnail_2 {
     display: inline-block;
     width: 25%; 
-    height: 30%; 
+    height: 70%; 
     background-size: cover; 
     background-position: center; 
     border-radius: 30%; 
@@ -561,13 +562,80 @@ td {
 .thumbnail_3 {
     display: inline-block;
     width: 25%; 
-    height: 30%; 
+    height: 70%; 
     background-size: cover; 
     background-position: center; 
     border-radius: 30%; 
     background-image: url(https://img.youtube.com/vi/foKiP7CmlTo/hqdefault.jpg);
     text-decoration: none; 
     margin-right: 1%; 
+}
+
+.game-container {
+    display: flex;
+    align-items: ;
+}
+
+.mini-game {
+    display: inline-block;
+    font-family: 'Dongle', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.rulebook {
+    position: absolute;
+    bottom: 200px;
+    right: 600px;
+    display: none;
+    width: 300px;
+    height: auto;
+    margin-left: 20px;
+    background-color: azure;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 버튼과 남은 횟수 사이 간격 조정 */
+    margin-bottom: 10px; /* 아래 입력 칸과의 간격 */
+}
+
+.rule-container p {
+   display: inline-block;
+}
+
+.mini-game-rule {
+    display: inline-block;
+    margin-left: 10px;
+}
+.text {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.correct {
+    background-color: green; /* 해당 글자와 일치 */
+}
+.partially_correct_1 {
+    background-color: pink; /* 자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 */
+}
+.partially_correct_2 {
+    background-color: skyblue; /* 자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 */
+}
+.one_match {
+    background-color: purple; /* 자음과 모음 중 하나만 있음 */
+}
+.reverse_match {
+    background-color: yellow; /* 자음과 모음 중 1개 이상이 반대쪽 글자에서 일치 */
+}
+.wrong {
+    background-color: red; /* 두 글자 모두에서 일치하는 자음과 모음이 없음 */
 }
 
 @media (max-width: 1000px) {
