@@ -631,9 +631,6 @@ td {
 .one_match {
     background-color: purple; /* 자음과 모음 중 하나만 있음 */
 }
-.reverse_match {
-    background-color: yellow; /* 자음과 모음 중 1개 이상이 반대쪽 글자에서 일치 */
-}
 .wrong {
     background-color: red; /* 두 글자 모두에서 일치하는 자음과 모음이 없음 */
 }

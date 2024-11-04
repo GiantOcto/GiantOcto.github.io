@@ -443,7 +443,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
             currentColor = 'correct'; // 정답
         } else if (초성일치 && (중성일치 || 종성일치)) {
             currentColor = 'partially_correct_1'; // 초성이 일치하고 중성일치 또는 종성일치 
-        } else if (!초성일치 && (중성일치 && (종성일치 || 종성이없음))) {
+        } else if (!초성일치 && (중성일치 && 종성일치)) {
             currentColor = 'partially_correct_2'; // 초성이 불일치하고 중성일치 또는 종성일치 또는 둘 다 종성이 없음
         } else if (초성일치 || 중성일치 || 종성일치) {
             currentColor = 'one_match'; // 초성 중성 종성 중 받침이 없음 중 1개만 일치
