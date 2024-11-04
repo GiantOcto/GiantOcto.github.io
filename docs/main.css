@@ -9,6 +9,7 @@ div, input, textarea {
 }
 
 .Banner {
+    contain: style layout inline-size;
     display: flex;
     background-color: rgb(155, 207, 96);
     width: 100%;

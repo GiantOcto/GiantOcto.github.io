@@ -193,7 +193,7 @@
         <div>
             <h1>미니 게임</h1>
                 <div class="game">
-                    <p id="remainingAttempts">남은 횟수: 8</p>
+                    <p id="remainingAttempts">남은 횟수: 10</p>
                     <button id="btn2" class="mini-game-rule">규칙</button>
                 </div>
             <input class="input text" maxlength="1">
@@ -219,7 +219,7 @@
 </div>
 
 
-<script> 
+<script type="module">
 
      function buttonOnOff(클래스명, 내용) {
     var elements = document.getElementsByClassName(클래스명);
@@ -396,14 +396,25 @@ document.getElementById('fetchButton').onclick = function() {
 };
 
 // 미니 게임 파트
+import { getRandomWord } from './words.js';
 
-var 답 = '치킨'; // 정답
+var 답 = ' '; // 정답
 var attempts = 0; // 제출 기회를 카운트하는 변수
-var maxAttempts = 8; // 최대 제출 기회
+var maxAttempts = 10; // 최대 제출 기회
 
 function updateRemainingAttempts() {
     document.getElementById('remainingAttempts').innerHTML = '남은 횟수: ' + (maxAttempts - attempts);
 }
+
+function displayRandomWord() {
+            답 = getRandomWord(); // 랜덤 단어를 변수에 저장
+            document.getElementById('randomWord').innerText = 답; // 화면에 표시
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+    displayRandomWord(); // 페이지 로드 시 단어를 표시
+    setInterval(displayRandomWord, 3600000); // 1시간마다 단어를 변경
+});    
 
 document.getElementById('button-minigame').addEventListener('click', function() {
     if (attempts >= maxAttempts) {
