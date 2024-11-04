@@ -190,7 +190,7 @@
 
     <div class="game-container"></div>
     <div class="mini-game">
-        <div>
+        <div class="chindle">
             <h1>미니 게임</h1>
                 <div class="game">
                     <p id="remainingAttempts">남은 횟수: 10</p>
@@ -198,15 +198,10 @@
                 </div>
             <input class="input text" maxlength="1">
             <input class="input text" maxlength="1">
-        </div>
-
-        <div class="result">
-            <div id="consonantsDisplay"></div>
-            <div id="vowelsDisplay"></div>
-            <div id="finalConsonantsDisplay"></div>
+            <button id="button-minigame">제출</button>
         </div>
     </div>
-    <button id="button-minigame">제출</button>
+    
 
     <div id="rulebook" class="rulebook">
         <p>정확히 일치 - 초록</p>
@@ -424,9 +419,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
 
     var inputs = document.querySelectorAll('.input');
     // 이전 결과 지우기
-    document.getElementById('consonantsDisplay').innerHTML = '';
-    document.getElementById('vowelsDisplay').innerHTML = '';
-    document.getElementById('finalConsonantsDisplay').innerHTML = '';
+    
 
     // 정답을 초성, 중성, 종성으로 쪼개기
     var 답결과 = splitHangul(답);
