@@ -437,8 +437,6 @@ document.getElementById('fetchButton').onclick = function() {
 import { getRandomWord } from './words.js';
 
 var 답 = ' '; // 정답
-displayRandomWord();
-console.log(답);
 
 var attempts = 0; // 제출 기회를 카운트하는 변수
 var maxAttempts = 10; // 최대 제출 기회
@@ -449,6 +447,7 @@ function updateRemainingAttempts() {
 
 function displayRandomWord() {
             답 = getRandomWord(); // 랜덤 단어를 변수에 저장    
+            console.log(답);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -464,7 +463,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
 
     var inputs = document.querySelectorAll('.input');
     // 이전 결과 지우기
-    
+
 
     // 정답을 초성, 중성, 종성으로 쪼개기
     var 답결과 = splitHangul(답);
@@ -489,7 +488,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
         const 자음일치 = input결과.finalConsonants[0] === 답초성[i] || input결과.consonants[0] === 답종성[i]
         const 일치개수 = (초성일치 ? 1 : 0) + (중성일치 ? 1 : 0) + (종성일치 ? 1 : 0) + (자음일치 ? 1 : 0);
 
-    
+
         // 조건에 따른 색상 설정
         if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
     currentColor = 'correct'; // 모든 것이 일치 (정답)
@@ -508,7 +507,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
     console.log("종성이없음: ", 종성이없음);
     console.log("자음일치:", 자음일치);
     console.log(일치개수);
-    
+
 
         // 현재 입력 필드에 해당 색상 클래스 추가
         inputs[i].classList.add(currentColor);
@@ -618,7 +617,6 @@ function normalizeConsonant(consonant) {
         'ᇁ': 'ㅍ', // 피읖
         'ᇂ': 'ㅎ', // 히읗
     };
-
     return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
 }
 
