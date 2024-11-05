@@ -222,10 +222,9 @@ crossorigin="anonymous">
 </script>
 
 <script>  //다크모드 //
-    var count = 0; console.log(count);
+    var count = 0;
     $('.badge').on('click', function() { 
         count++;
-        console.log(count);
 
         if(count % 2 == 1 ) {
             $('.Banner').css('background-color', 'rgb(27, 36, 17)');
@@ -438,6 +437,8 @@ document.getElementById('fetchButton').onclick = function() {
 import { getRandomWord } from './words.js';
 
 var 답 = ' '; // 정답
+displayRandomWord();
+console.log(답);
 
 var attempts = 0; // 제출 기회를 카운트하는 변수
 var maxAttempts = 10; // 최대 제출 기회
@@ -488,7 +489,7 @@ document.getElementById('button-minigame').addEventListener('click', function() 
         const 자음일치 = input결과.finalConsonants[0] === 답초성[i] || input결과.consonants[0] === 답종성[i]
         const 일치개수 = (초성일치 ? 1 : 0) + (중성일치 ? 1 : 0) + (종성일치 ? 1 : 0) + (자음일치 ? 1 : 0);
 
-
+    
         // 조건에 따른 색상 설정
         if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
     currentColor = 'correct'; // 모든 것이 일치 (정답)
