@@ -216,7 +216,7 @@
 
 <script type="module">
 
-     function buttonOnOff(클래스명, 내용) {
+    window.buttonOnOff = function(클래스명, 내용) {
     var elements = document.getElementsByClassName(클래스명);
     
     for (var i = 0; i < elements.length; i++) {
@@ -224,7 +224,7 @@
         }
     }
 
-    function buttonToggle(요소) {
+    window.buttonToggle = function(요소) {
     var element = document.getElementById(요소);
     
     if (element.style.display === 'none' || element.style.display === '') {
