@@ -613,8 +613,8 @@ td {
 
 .rulebook {
     position: absolute;
-    bottom: 200px;
-    right: 600px;
+    bottom: 20%;
+    right: 30%;
     width: 300px;
     height: auto;
     margin-left: 20px;
