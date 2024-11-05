@@ -634,6 +634,13 @@ td {
     margin-bottom: 10px; /* 아래 입력 칸과의 간격 */
 }
 
+@media (max-width: 1000px) {
+    .input {
+        width: 100px;
+        height: 100px;
+
+}
+}
 .rule-container p {
    display: inline-block;
 }
