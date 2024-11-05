@@ -636,8 +636,8 @@ td {
 
 @media (max-width: 1000px) {
     .input {
-        width: 100px;
-        height: 100px;
+        width: 400px;
+        height: 400px;
 
 }
 }
