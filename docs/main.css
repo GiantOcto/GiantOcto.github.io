@@ -598,7 +598,7 @@ td {
     height: 100%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     .chindle h1 {
         font-size: 50px;
     }
@@ -628,19 +628,13 @@ td {
 
 
 .game {
+    
     display: flex;
     align-items: center;
     gap: 15px; /* 버튼과 남은 횟수 사이 간격 조정 */
     margin-bottom: 10px; /* 아래 입력 칸과의 간격 */
 }
 
-@media (max-width: 1000px) {
-    .input {
-        width: 400px;
-        height: 400px;
-
-}
-}
 .rule-container p {
    display: inline-block;
 }
