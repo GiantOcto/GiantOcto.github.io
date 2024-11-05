@@ -350,14 +350,63 @@ td {
 }
 
 .Button-container {
-    width: 10%;
+    position: relative;
+    width: 15%;
     height: 100%;
     text-align: right;
-    
 }
 .Button-container a {
     text-decoration: none;
 }
+
+.Button-container label {
+    right: 50px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+  }
+
+
+.Button-container [type="checkbox"] {
+    appearance: none;
+    position: relative;
+    border: max(2px, 0.1em) solid gray;
+    border-radius: 1.25em;
+    width: 2.25em;
+    height: 1.25em;
+  }
+
+ .Button-container [type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: scale(0.8);
+    background-color: gray;
+    transition: left 250ms linear;
+  }
+
+.Button-container [type="checkbox"]:checked::before {
+    background-color: white;
+    left: 1em;
+  }
+  
+.Button-container [type="checkbox"]:checked {
+    background-color: tomato;
+    border-color: tomato;
+  }
+
+.Button-container  [type="checkbox"]:enabled:hover {
+    box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  }
 
 .button_chim, .button_chzzk {
     display: inline-block;
@@ -531,6 +580,7 @@ td {
 }
 
 .button-container {
+    width: 100%;
     margin-top: 10px; 
 }
 

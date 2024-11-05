@@ -129,6 +129,10 @@
     </div>
 
     <div class="Button-container ">
+        <label>
+            <span>다크 모드</span>
+            <input class="badge" role="switch" type="checkbox" />
+        </label>
             <a href="https://www.youtube.com/channel/UCUj6rrhMTR9pipbAWBAMvUQ">
                 <button class="button_chim">
                     <p>침투부</p>
@@ -193,7 +197,7 @@
         <div class="chindle">
             <h1>미니 게임</h1>
                 <div class="game">
-                    <p id="remainingAttempts">남은 횟수: 10</p>
+                    <h1 id="remainingAttempts" style="font-size: 15px; margin: 0px;">남은 횟수: 10</h1>
                     <button id="btn2" class="mini-game-rule">규칙</button>
                 </div>
             <input class="input text" maxlength="1">
@@ -212,6 +216,30 @@
     
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous">
+</script>
+
+<script>  //다크모드 //
+    var count = 0; console.log(count);
+    $('.badge').on('click', function() { 
+        count++;
+        console.log(count);
+
+        if(count % 2 == 1 ) {
+            $('.Banner').css('background-color', 'rgb(27, 36, 17)');
+            $('body').css('background-color', 'rgb(10, 10, 10)');
+            $('h1').css('color', 'white');
+        }
+        else {
+            $('.Banner').css('background-color', 'rgb(155, 207, 96)'); 
+            $('body').css('background-color', '#FFCC80');
+            $('h1').css('color', 'black');
+        }
+    });
+    
+</script>
 
 <script type="module">
 
@@ -235,12 +263,6 @@
     { button: '#btn1', target: '.shopcart' }
     ];
 
-    toogle_buttons.forEach(item => {
-    $(item.button).on('click', function() {
-        buttonToggle(item.target);
-    });
-    });
-
     const fadein_buttons = [
     { button: '#btn2', target: '.rulebook' }
     ];
@@ -251,7 +273,23 @@
     });
     });
 
+    toogle_buttons.forEach(item => {
+    $(item.button).on('click', function() {
+        buttonToggle(item.target);
+    });
+    });
 
+    $('#loginForm').on('submit', function(event) {
+    // 폼 제출 시 기본 동작을 방지
+    event.preventDefault(); 
+
+    // 비밀번호 길이를 체크
+    if ($('#login-password').val().length < 6) {
+        alert('비밀번호는 6자 이상입니다.');
+    } else {
+        this.submit(); 
+    }
+    });
 
     const tempSection = document.querySelector('.temperature');
     const placeSection = document.querySelector('.place');
@@ -410,7 +448,6 @@ function updateRemainingAttempts() {
 
 function displayRandomWord() {
             답 = getRandomWord(); // 랜덤 단어를 변수에 저장    
-            console.log(답);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -587,10 +624,6 @@ function normalizeConsonant(consonant) {
 
 // 처음 입력 필드에 리스너를 추가합니다.
 addInputListeners();
-</script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-crossorigin="anonymous">
 </script>
 </body>
 </html>
