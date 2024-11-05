@@ -14,7 +14,7 @@
 
 <div class="Banner">
     <div class="input-container">
-        <form id="loginForm">           
+        <form id="loginForm" action="url~~~">           
         <label for="login-username">아이디:</label>
         <input type="text" id="login-username" placeholder="" required>
         <label for="login-password">비밀번호:</label>
@@ -69,7 +69,7 @@
 
  </div>   
 
- <div class="shopcart" id="shopcart">
+ <div class="shopcart">
     <div class="shopcart-top"><h1>Your shopping cart </h1></div>
     <div class="cart-box">
     <table>
@@ -110,7 +110,7 @@
 
     <div class="Banner-container">
         <button onclick="buttonOnOff('developer-profile','block')" class="Banner-image"></button>
-        <h1 class="Banner-text" onclick="buttonToggle('profile')">친하하</h1> 
+        <h1 class="Banner-text">친하하</h1> 
         <nav style=" width: 70%; height: 100%; display: flex;">
             <ul class="navbar">
                 <li><a href="#">인기게시글</a></li>
@@ -203,7 +203,7 @@
     </div>
     
 
-    <div id="rulebook" class="rulebook">
+    <div class="rulebook">
         <p>정확히 일치 - 초록</p>
         <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - 분홍</p>
         <p>자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 - 하늘</p>
@@ -225,26 +225,33 @@
     }
 
     window.buttonToggle = function(요소) {
-    var element = document.getElementById(요소);
-    
-    if (element.style.display === 'none' || element.style.display === '') {
-        element.style.display = 'block'; 
-    } else {
-        element.style.display = 'none'; 
-           }
+    $(요소).toggleClass('show');
     }
 
-    function textChange(요소, 내용) {
-    document.getElementById(요소).innerText = 내용;
+    window.buttonFadein = function(요소) {
+    $(요소).toggleClass('fadein');
     }
 
-    document.getElementById('btn1').addEventListener('click', () => {
-        buttonToggle('shopcart'); 
+    const toogle_buttons = [
+    { button: '#btn1', target: '.shopcart' }
+    ];
+
+    toogle_buttons.forEach(item => {
+    $(item.button).on('click', function() {
+        buttonToggle(item.target);
+    });
     });
 
-    document.getElementById('btn2').addEventListener('click', () => {
-        buttonToggle('rulebook'); 
+    const fadein_buttons = [
+    { button: '#btn2', target: '.rulebook' }
+    ];
+
+    fadein_buttons.forEach(item => {
+    $(item.button).on('click', function() {
+        buttonFadein(item.target);
     });
+    });
+
 
 
     const tempSection = document.querySelector('.temperature');
@@ -394,6 +401,7 @@ document.getElementById('fetchButton').onclick = function() {
 import { getRandomWord } from './words.js';
 
 var 답 = ' '; // 정답
+
 var attempts = 0; // 제출 기회를 카운트하는 변수
 var maxAttempts = 10; // 최대 제출 기회
 
@@ -402,8 +410,8 @@ function updateRemainingAttempts() {
 }
 
 function displayRandomWord() {
-            답 = getRandomWord(); // 랜덤 단어를 변수에 저장
-            document.getElementById('randomWord').innerText = 답; // 화면에 표시
+            답 = getRandomWord(); // 랜덤 단어를 변수에 저장    
+            console.log(답);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -441,19 +449,29 @@ document.getElementById('button-minigame').addEventListener('click', function() 
         const 중성일치 = input결과.vowels[0] === 답중성[i];
         const 종성일치 = input결과.finalConsonants[0] === 답종성[i] && (input결과.finalConsonants[0] !== '' && 답종성[i] !== '');
         const 종성이없음 = 답종성[i] === '' && input결과.finalConsonants[0] === '';
+        const 자음일치 = input결과.finalConsonants[0] === 답초성[i] || input결과.consonants[0] === 답종성[i]
+        const 일치개수 = (초성일치 ? 1 : 0) + (중성일치 ? 1 : 0) + (종성일치 ? 1 : 0) + (자음일치 ? 1 : 0);
+
 
         // 조건에 따른 색상 설정
         if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
-            currentColor = 'correct'; // 정답
-        } else if (초성일치 && (중성일치 || 종성일치)) {
-            currentColor = 'partially_correct_1'; // 초성이 일치하고 중성일치 또는 종성일치 
-        } else if (!초성일치 && (중성일치 && 종성일치)) {
-            currentColor = 'partially_correct_2'; // 초성이 불일치하고 중성일치 또는 종성일치 또는 둘 다 종성이 없음
-        } else if (초성일치 || 중성일치 || 종성일치) {
-            currentColor = 'one_match'; // 초성 중성 종성 중 받침이 없음 중 1개만 일치
-        } else {
-            currentColor = 'wrong'; // 모든 것이 불일치
-        }
+    currentColor = 'correct'; // 모든 것이 일치 (정답)
+    } else if (일치개수 >= 2 && 초성일치) {
+    currentColor = 'partially_correct_1'; // 초성이 일치하고 자음 또는 모음 2개 이상 일치
+    } else if (일치개수 >= 2 && !초성일치) {
+    currentColor = 'partially_correct_2'; // 초성이 불일치하고 자음 또는 모음 2개 이상 일치
+    } else if (일치개수 === 1) {
+    currentColor = 'one_match'; // 오직 하나만 일치
+    } else {
+    currentColor = 'wrong'; // 모든 것이 불일치
+    }
+    console.log("초성일치: ", 초성일치);
+    console.log("중성일치: ", 중성일치);
+    console.log("종성일치: ", 종성일치);
+    console.log("종성이없음: ", 종성이없음);
+    console.log("자음일치:", 자음일치);
+    console.log(일치개수);
+    
 
         // 현재 입력 필드에 해당 색상 클래스 추가
         inputs[i].classList.add(currentColor);
@@ -503,10 +521,13 @@ function splitHangul(hangul) {
             const jung = Math.floor((base % (21 * 28)) / 28); // 중성 인덱스
             const jong = base % 28; // 종성 인덱스
 
-            consonants.push(String.fromCharCode(0x1100 + cho)); // 초성
-            vowels.push(String.fromCharCode(0x1161 + jung)); // 중성
+            // 정규화 적용
+            const normalizedCho = normalizeConsonant(String.fromCharCode(0x1100 + cho)); // 초성 정규화
+            consonants.push(normalizedCho); // 정규화된 초성 추가
+            vowels.push(String.fromCharCode(0x1161 + jung)); // 중성 추가
             if (jong > 0) {
-                finalConsonants.push(String.fromCharCode(0x11A7 + jong)); // 종성
+                const normalizedJong = normalizeConsonant(String.fromCharCode(0x11A7 + jong)); // 종성 정규화
+                finalConsonants.push(normalizedJong); // 정규화된 종성 추가
             } else {
                 finalConsonants.push(''); // 종성이 없는 경우 빈 문자열 추가
             }
@@ -519,8 +540,58 @@ function splitHangul(hangul) {
     return { consonants, vowels, finalConsonants }; // 초성, 중성, 종성을 반환
 }
 
+
+function normalizeConsonant(consonant) {
+    // 모든 자음을 같은 값으로 정규화
+    const normalizedMap = {
+        'ㄱ': 'ㄱ', 'ᄀ': 'ㄱ', // 기역
+        'ㄲ': 'ㄲ', 'ᄁ': 'ㄲ', // 쌍기역
+        'ㄴ': 'ㄴ', 'ᄂ': 'ㄴ', // 니은
+        'ㄷ': 'ㄷ', 'ᄃ': 'ㄷ', // 디귿
+        'ㄸ': 'ㄸ', 'ᄃᄃ': 'ㄸ', // 쌍디귿
+        'ㄹ': 'ㄹ', 'ᄅ': 'ㄹ', // 리을
+        'ㅁ': 'ㅁ', 'ᄆ': 'ㅁ', // 미음
+        'ㅂ': 'ㅂ', 'ᄇ': 'ㅂ', // 비읍
+        'ㅃ': 'ㅃ', 'ᄈ': 'ㅃ', // 쌍비읍
+        'ㅅ': 'ㅅ', 'ᄉ': 'ㅅ', // 시옷
+        'ㅆ': 'ㅆ', 'ᄊ': 'ㅆ', // 쌍시옷
+        'ㅇ': 'ㅇ', // 이응
+        'ㅈ': 'ㅈ', 'ᄌ': 'ㅈ', // 지읒
+        'ㅉ': 'ㅉ', 'ᄏ': 'ㅉ', // 쌍지읒
+        'ㅊ': 'ㅊ', 'ᄎ': 'ㅊ', // 치읓
+        'ㅋ': 'ㅋ', // 키읔
+        'ㅌ': 'ㅌ', // 티읕
+        'ㅍ': 'ㅍ', // 피읖
+        'ㅎ': 'ㅎ', // 히읗
+        // 종성 정규화 추가
+        'ᆨ': 'ㄱ', 'ᄀ': 'ㄱ', // 기역
+        'ᆩ': 'ㄲ', 'ᄁ': 'ㄲ', // 쌍기역
+        'ᆫ': 'ㄴ', 'ᄂ': 'ㄴ', // 니은
+        'ᆮ': 'ㄷ', 'ᄃ': 'ㄷ', // 디귿
+        'ᆯ': 'ㄹ', 'ᄅ': 'ㄹ', // 리을
+        'ᆷ': 'ㅁ', 'ᄆ': 'ㅁ', // 미음
+        'ᆸ': 'ㅂ', 'ᄇ': 'ㅂ', // 비읍
+        'ᆺ': 'ㅅ', 'ᄉ': 'ㅅ', // 시옷
+        'ᆻ': 'ㅆ', 'ᄊ': 'ㅆ', // 쌍시옷
+        'ᆼ': 'ㅇ', // 이응
+        'ᆾ': 'ㅊ', // 지읒
+        'ᆽ': 'ㅈ', // 지읒
+        'ᆿ': 'ㅋ', // 키읔
+        'ᇀ': 'ㅌ', // 티읕
+        'ᇁ': 'ㅍ', // 피읖
+        'ᇂ': 'ㅎ', // 히읗
+    };
+
+    return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
+}
+
+
 // 처음 입력 필드에 리스너를 추가합니다.
 addInputListeners();
+</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous">
 </script>
 </body>
 </html>
