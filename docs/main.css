@@ -598,14 +598,14 @@ td {
     height: 100%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .chindle h1 {
         font-size: 50px;
     }
     .text {
         width: 100px;
         height: 100px;
-        font-size: 20px;
+        font-size: 10px;
         text-align: center;
         margin-bottom: 10px;
     }
