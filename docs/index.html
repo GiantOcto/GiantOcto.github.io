@@ -44,7 +44,18 @@
           </div>
         </form>
       </div>
-    
+
+      <button id="openCanvasButton" class="canvas-button">☰</button>
+
+      <div id="openCanvasMenu" class="canvas-menu">
+        <ul class="canvas-navbar">
+          <li><a href="#">인기게시글</a></li>
+          <li><a href="#">전체게시글</a></li>
+          <li><a href="#">자유게시판</a></li>
+          <li><a href="#">이벤트</a></li>
+          <li><p id="btn4">장바구니</p></li>
+        </ul>
+      </div>
 
       <div class="contactus-box">
         <div>
@@ -301,6 +312,18 @@
         }
       });
     </script>
+ 
+    <script>  
+        document.getElementById('openCanvasButton').addEventListener('click', function() {
+  var menu = document.getElementById('openCanvasMenu');
+  // 메뉴가 닫혀 있으면 슬라이드 열기, 열려 있으면 슬라이드 닫기
+  if (menu.style.left === '-250px') {
+    menu.style.left = '0'; // 메뉴를 화면에 표시
+  } else {
+    menu.style.left = '-250px'; // 메뉴를 화면 바깥으로 슬라이드
+  }
+});
+    </script>
 
     <script type="module">
       window.buttonOnOff = function (클래스명, 내용) {
@@ -327,6 +350,10 @@
         {
           button: "#btn3",
           target: ".developer-profile",
+        },
+        {
+          button: "#btn4",
+          target: ".shopcart",
         }
       ];
 

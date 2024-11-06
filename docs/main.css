@@ -238,6 +238,59 @@ input:focus {
     width: 70%;
     height: 100%;
 }
+
+.canvas-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: left 0.3s ease; 
+    z-index: 1000;
+  }
+  
+  .canvas-navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .canvas-navbar li {
+    background-color: #111;
+    text-align: center;
+  }
+  
+ .canvas-navbar a, .canvas-navbar p {
+    color: white;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+  .canvas-navbar a:hover, .canvas-navbar p:hover {
+    background-color: #575757;
+  }
+  
+  .canvas-button {
+    display: none;
+    width: 10%;
+    height: 40%;
+    text-align: left;
+    font-size: 30px;
+    background-color: rgb(155, 207, 96);
+    color: white;
+    padding: auto;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 2000; 
+  }
+  
+
 .navbar {
   display: flex;
   justify-content: space-evenly;
@@ -645,7 +698,7 @@ td {
 
 .rulebook {
   position: relative;
-  bottom: 50%;
+  bottom: 80%;
   left: 30%;
   width: 300px;
   height: auto;
@@ -728,20 +781,31 @@ td {
 
 @media screen and (max-width: 800px) {
 
-    .Banner h1 {
-        font-size: 10px;
+    .input-container {
+        display: none;
+    }
+
+    .nav {
+        display: none;
     }
 
     .profile {
         flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
-  
 
     .Banner-image {
-        width: 50px;
-        height: 50px;
-        margin-right: 1%;
-      }
+        width: 30%;
+        height: 60%;
+        background-size: cover;
+    }
+
+    .Banner-text {
+        width: 30%;
+        height: auto;
+        font-size: 30px;
+    }
     
     .login-container {
         display: flex;
@@ -757,19 +821,13 @@ td {
         padding: 0px;
     }
 
-
-    .navbar a,
-    .navbar p {
-      font-size: 10px;
-      vertical-align: top;
-    }
-
     .weatherbar {
-        justify-content: start;
+        display: none;
     }
-    .weatherbar dd {
-        font-size: 10px;
-    }
+
+    .canvas-button {
+        display: block; /* 모바일에서만 메뉴 버튼 보이기 */
+      }
 
     .Button-container {
         text-align: end;
@@ -780,41 +838,6 @@ td {
         right: 20px;
     }
 
-    .Button-container [type="checkbox"] {
-        appearance: none;
-        position: relative;
-        border: max(2px, 0.05em) solid gray;
-        border-radius: 1.25em;
-        width: 1.125em;
-        height: 0.625em;
-      }
-      
-      .Button-container [type="checkbox"]::before {
-        content: "";
-        position: absolute;
-        left: 0.1em;
-        width: 0.5em;
-        height: 0.5em;
-        border-radius: 50%;
-        transform: scale(0.8);
-        background-color: gray;
-        transition: left 250ms linear;
-      }
-      
-      .Button-container [type="checkbox"]:checked::before {
-        background-color: white;
-        left: 1em;
-      }
-      
-      .Button-container [type="checkbox"]:checked {
-        background-color: tomato;
-        border-color: tomato;
-      }
-      
-      .Button-container [type="checkbox"]:enabled:hover {
-        box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
-      }
-  
     .main-menu h1 {
       font-size: 15px;
     }
@@ -907,11 +930,6 @@ td {
         max-height: 300px;
         overflow-y: scroll;
         overflow-x: hidden;
-      }
-
-      .rulebook {
-        right: 5%;
-        bottom: 25%;
       }
 
       
