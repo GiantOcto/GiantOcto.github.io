@@ -1,7 +1,7 @@
 body,
 html {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
 }
 
@@ -909,7 +909,7 @@ td {
       }
 
       .characterBox {
-        min-width: 130px;
+        min-width: 120px;
         height: auto;
         display: inline-block;
       }
@@ -924,7 +924,7 @@ td {
       }
 
       .equipmentBox {
-        min-width: 130px;
+        min-width: 120px;
         height: auto;
         display: none;
         max-height: 300px;
