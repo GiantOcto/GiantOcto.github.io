@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-          @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
-          @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
-        </style>
-        <meta charset="UTF-8" />
-        <meta name="description" content="html 친하하하하하.">
-        <meta name="keywords" content="친하하,친칠라">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="cat.ico" type="image/x-icon">
-        <title>친 하 하</title>
-        <link href="main.css" rel="stylesheet" />
-    </head>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="description" content="html 친하하하하하." />
+    <meta name="keywords" content="친하하,친칠라" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="cat.ico" type="image/x-icon" />
+    <title>친 하 하</title>
+    <link href="main.css" rel="stylesheet" />
+  </head>
 
   <body style="background-color: #ffcc80">
     <div class="Banner">
@@ -147,13 +147,10 @@
 
       <div class="Banner-container">
         <div class="profile">
-            <button
-            id="btn3"
-            class="Banner-image"
-          ></button>
+          <button id="btn3" class="Banner-image"></button>
           <h1 class="Banner-text">친하하</h1>
         </div>
-        
+
         <nav class="nav">
           <ul class="navbar">
             <li>
@@ -175,11 +172,10 @@
         </nav>
 
         <dl class="weatherbar">
-            <dd class="place"></dd>
-            <dd class="temperature"></dd>
-            <dd class="description"></dd>
-          </dl>
-
+          <dd class="place"></dd>
+          <dd class="temperature"></dd>
+          <dd class="description"></dd>
+        </dl>
       </div>
 
       <div class="Button-container">
@@ -259,32 +255,30 @@
         </div>
 
         <div class="game-container">
-         
-            <div class="chindle">
-              <h1>미니 게임</h1>
-              <div class="game">
-                <h1 id="remainingAttempts" style="font-size: 15px; margin: 0px">
-                  남은 횟수: 10
-                </h1>
-                <button id="btn2" class="mini-game-rule">규칙</button>
-              </div>
-
-              <input class="input text" maxlength="1" />
-              <input class="input text" maxlength="1" />
-              <button id="button-minigame">제출</button>
+          <div class="chindle">
+            <h1>미니 게임</h1>
+            <div class="game">
+              <h1 id="remainingAttempts" style="font-size: 15px; margin: 0px">
+                남은 횟수: 10
+              </h1>
+              <button id="btn2" class="mini-game-rule">규칙</button>
             </div>
 
-            <div class="rulebook">
-              <p>정확히 일치 - 초록</p>
-              <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - 분홍</p>
-              <p>
-                자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 -
-                하늘
-              </p>
-              <p>자음과 모음 중 하나만 일치 - 보라</p>
-              <p>하나도 일치하지 않음 - 빨강</p>
-            </div>
-          
+            <input class="input text" maxlength="1" />
+            <input class="input text" maxlength="1" />
+            <button id="button-minigame">제출</button>
+          </div>
+
+          <div class="rulebook">
+            <p>정확히 일치 - <span style="color: green;">초록</span></p>
+            <p>정답 글자의 초성과 종성이 같고 입력 단어에 포함됨 - <span style="color: yellow;">노랑</span></p>
+            <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - <span style="color: pink;">분홍</span></p>
+            <p>
+              자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 - <span style="color: skyblue;">하늘</span>
+            </p>
+            <p>자음과 모음 중 하나만 일치 - <span style="color: purple;">보라</span></p>
+            <p>하나도 일치하지 않음 - <span style="color: red;">빨강</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -303,33 +297,37 @@
 
         if (count % 2 == 1) {
           $(".Banner").css("background-color", "rgb(27, 36, 17)");
+          $(".canvas-button").css("background-color", "rgb(27, 36, 17)");
           $("body").css("background-color", "rgb(10, 10, 10)");
           $(".main-menu h1").css("color", "white");
         } else {
           $(".Banner").css("background-color", "rgb(155, 207, 96)");
+          $(".canvas-button").css("background-color", "rgb(155, 207, 96)");
           $("body").css("background-color", "#FFCC80");
           $(".main-menu h1").css("color", "black");
         }
       });
     </script>
- 
- <script>  
-    document.getElementById('openCanvasButton').addEventListener('click', function() {
-      var menu = document.getElementById('openCanvasMenu');
-      
-      // 메뉴의 초기 left 상태 설정
-      if (menu.style.left === '') {
-        menu.style.left = '-250px';  // 메뉴가 처음에는 보이지 않도록 설정
-      }
-      
-      // 메뉴가 닫혀 있으면 슬라이드 열기, 열려 있으면 슬라이드 닫기
-      if (menu.style.left === '-250px') {
-        menu.style.left = '0'; // 메뉴를 화면에 표시
-      } else {
-        menu.style.left = '-250px'; // 메뉴를 화면 바깥으로 슬라이드
-      }
-    });
-  </script>
+
+    <script>
+      document
+        .getElementById("openCanvasButton")
+        .addEventListener("click", function () {
+          var menu = document.getElementById("openCanvasMenu");
+
+          // 메뉴의 초기 left 상태 설정
+          if (menu.style.left === "") {
+            menu.style.left = "-250px"; // 메뉴가 처음에는 보이지 않도록 설정
+          }
+
+          // 메뉴가 닫혀 있으면 슬라이드 열기, 열려 있으면 슬라이드 닫기
+          if (menu.style.left === "-250px") {
+            menu.style.left = "0"; // 메뉴를 화면에 표시
+          } else {
+            menu.style.left = "-250px"; // 메뉴를 화면 바깥으로 슬라이드
+          }
+        });
+    </script>
 
     <script type="module">
       window.buttonOnOff = function (클래스명, 내용) {
@@ -360,7 +358,7 @@
         {
           button: "#btn4",
           target: ".shopcart",
-        }
+        },
       ];
 
       const fadein_buttons = [
@@ -591,6 +589,7 @@
           for (let i = 0; i < inputs.length; i++) {
             inputs[i].classList.remove(
               "correct",
+              "double",
               "partially_correct_1",
               "partially_correct_2",
               "one_match",
@@ -599,22 +598,39 @@
             ); // 이전 클래스 제거
 
             var inputWord = inputs[i].value; // 현재 입력 필드의 값
-            var input결과 = splitHangul(inputWord); // 현재 입력 값을 쪼개서 저장
+            var 인풋결과 = splitHangul(inputWord); // 현재 입력 값을 쪼개서 저장
+            var 인풋초성 = 인풋결과.consonants;
+            var 인풋중성 = 인풋결과.vowels;
+            var 인풋종성 = 인풋결과.finalConsonants;
 
             let currentColor = "wrong"; // 기본 색상은 빨간색 (오답)
 
+            console.log("인풋초성:", 인풋초성[0]);
+          console.log("인풋중성:", 인풋중성[0]);
+          console.log("인풋종성:", 인풋종성[0]);
+          console.log("답초성:", 답초성[0]);
+          console.log("답중성:", 답중성[0]);
+          console.log("답종성:", 답종성[0]);
+
+
+          console.log("답초성:", 답초성[1]);
+          console.log("답중성:", 답중성[1]);
+          console.log("답종성:", 답종성[1]);
+
             // 초성, 중성, 종성을 비교
-            const 초성일치 = input결과.consonants[0] === 답초성[i];
-            const 중성일치 = input결과.vowels[0] === 답중성[i];
+            const 초성일치 = 인풋초성[0] === 답초성[i];
+            const 자음동일단어 = 답초성[i] === 답종성[i];
+            const 중성일치 = 인풋중성[0] === 답중성[i];
             const 종성일치 =
-              input결과.finalConsonants[0] === 답종성[i] &&
-              input결과.finalConsonants[0] !== "" &&
+              인풋종성[0] === 답종성[i] &&
+              인풋종성[0] !== "" &&
               답종성[i] !== "";
             const 종성이없음 =
-              답종성[i] === "" && input결과.finalConsonants[0] === "";
+              답종성[i] === "" && 인풋종성[0] === "";
             const 자음일치 =
-              input결과.finalConsonants[0] === 답초성[i] ||
-              input결과.consonants[0] === 답종성[i];
+              인풋종성[0] === 답초성[i] ||
+              인풋초성[0] === 답종성[i];
+            const 뒤바뀜 = 인풋중성[0] === 답중성[1] || 인풋중성 === 답중성[0];
             const 일치개수 =
               (초성일치 ? 1 : 0) +
               (중성일치 ? 1 : 0) +
@@ -624,6 +640,8 @@
             // 조건에 따른 색상 설정
             if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
               currentColor = "correct"; // 모든 것이 일치 (정답)
+            } else if (일치개수 >= 2 && 자음동일단어) {
+              currentColor = "double";  // 정답 글자의 초성과 종성이 같고 입력 단어에 포함됨
             } else if (일치개수 >= 2 && 초성일치) {
               currentColor = "partially_correct_1"; // 초성이 일치하고 자음 또는 모음 2개 이상 일치
             } else if (일치개수 >= 2 && !초성일치) {
@@ -633,17 +651,12 @@
             } else {
               currentColor = "wrong"; // 모든 것이 불일치
             }
-            console.log("초성일치: ", 초성일치);
-            console.log("중성일치: ", 중성일치);
-            console.log("종성일치: ", 종성일치);
-            console.log("종성이없음: ", 종성이없음);
-            console.log("자음일치:", 자음일치);
-            console.log(일치개수);
 
             // 현재 입력 필드에 해당 색상 클래스 추가
             inputs[i].classList.add(currentColor);
             inputs[i].classList.remove("input");
           }
+
 
           // 제출 기회 증가
           attempts++;
@@ -714,70 +727,27 @@
       }
 
       function normalizeConsonant(consonant) {
-        // 모든 자음을 같은 값으로 정규화
-        const normalizedMap = {
-          ㄱ: "ㄱ",
-          ᄀ: "ㄱ", // 기역
-          ㄲ: "ㄲ",
-          ᄁ: "ㄲ", // 쌍기역
-          ㄴ: "ㄴ",
-          ᄂ: "ㄴ", // 니은
-          ㄷ: "ㄷ",
-          ᄃ: "ㄷ", // 디귿
-          ㄸ: "ㄸ",
-          ᄃᄃ: "ㄸ", // 쌍디귿
-          ㄹ: "ㄹ",
-          ᄅ: "ㄹ", // 리을
-          ㅁ: "ㅁ",
-          ᄆ: "ㅁ", // 미음
-          ㅂ: "ㅂ",
-          ᄇ: "ㅂ", // 비읍
-          ㅃ: "ㅃ",
-          ᄈ: "ㅃ", // 쌍비읍
-          ㅅ: "ㅅ",
-          ᄉ: "ㅅ", // 시옷
-          ㅆ: "ㅆ",
-          ᄊ: "ㅆ", // 쌍시옷
-          ㅇ: "ㅇ", // 이응
-          ㅈ: "ㅈ",
-          ᄌ: "ㅈ", // 지읒
-          ㅉ: "ㅉ",
-          ᄏ: "ㅉ", // 쌍지읒
-          ㅊ: "ㅊ",
-          ᄎ: "ㅊ", // 치읓
-          ㅋ: "ㅋ", // 키읔
-          ㅌ: "ㅌ", // 티읕
-          ㅍ: "ㅍ", // 피읖
-          ㅎ: "ㅎ", // 히읗
-          // 종성 정규화 추가
-          ᆨ: "ㄱ",
-          ᄀ: "ㄱ", // 기역
-          ᆩ: "ㄲ",
-          ᄁ: "ㄲ", // 쌍기역
-          ᆫ: "ㄴ",
-          ᄂ: "ㄴ", // 니은
-          ᆮ: "ㄷ",
-          ᄃ: "ㄷ", // 디귿
-          ᆯ: "ㄹ",
-          ᄅ: "ㄹ", // 리을
-          ᆷ: "ㅁ",
-          ᄆ: "ㅁ", // 미음
-          ᆸ: "ㅂ",
-          ᄇ: "ㅂ", // 비읍
-          ᆺ: "ㅅ",
-          ᄉ: "ㅅ", // 시옷
-          ᆻ: "ㅆ",
-          ᄊ: "ㅆ", // 쌍시옷
-          ᆼ: "ㅇ", // 이응
-          ᆾ: "ㅊ", // 지읒
-          ᆽ: "ㅈ", // 지읒
-          ᆿ: "ㅋ", // 키읔
-          ᇀ: "ㅌ", // 티읕
-          ᇁ: "ㅍ", // 피읖
-          ᇂ: "ㅎ", // 히읗
-        };
-        return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
-      }
+  const normalizedMap = {
+    ㄱ: "ㄱ", ᄀ: "ㄱ", ᆨ: "ㄱ", // 기역
+    ㄲ: "ㄲ", ᄁ: "ㄲ", ᆩ: "ㄲ", // 쌍기역
+    ㄴ: "ㄴ", ᄂ: "ㄴ", ᆫ: "ㄴ", // 니은
+    ㄷ: "ㄷ", ᄃ: "ㄷ", ᆮ: "ㄷ", // 디귿
+    ㄸ: "ㄸ", ᄇ: "ㅂ", ᆸ: "ㅂ", // 비읍
+    ㅂ: "ㅂ", ᄇ: "ㅂ", ᆾ: "ㅊ", // 피읖
+    ㅅ: "ㅅ", ᄉ: "ㅅ", ᆺ: "ㅅ", // 시옷
+    ㅆ: "ㅆ", ᄊ: "ㅆ", ᆻ: "ㅆ", // 쌍시옷
+    ㅇ: "ㅇ", ᄋ: "ㅇ", ᆼ: "ㅇ", // 이응
+    ㅈ: "ㅈ", ᄌ: "ㅈ", ᆽ: "ㅈ", // 지읒
+    ㅉ: "ㅉ", ᄍ: "ㅉ", ᆿ: "ㅋ", // 쌍지읒
+    ㅊ: "ㅊ", ᄎ: "ㅊ", ᆾ: "ㅊ", // 치읓
+    ㅋ: "ㅋ", ᄏ: "ㅋ", ᇀ: "ㅋ", // 키읔
+    ㅌ: "ㅌ", ᄐ: "ㅌ", ᇁ: "ㅌ", // 티읕
+    ㅍ: "ㅍ", ᄑ: "ㅍ", ᇂ: "ㅍ", // 피읖
+    ㅎ: "ㅎ", ᄒ: "ㅎ", ᇂ: "ㅎ", // 히읗
+  };
+
+  return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
+}
 
       // 처음 입력 필드에 리스너를 추가합니다.
       addInputListeners();

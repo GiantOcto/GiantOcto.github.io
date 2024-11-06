@@ -178,11 +178,11 @@ input:focus {
 }
 
 .profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 15%;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  height: 100%;
 }
 
 .Banner-image {
@@ -232,64 +232,65 @@ input:focus {
 }
 
 .nav {
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    width: 70%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
 }
 
 .canvas-menu {
-    position: fixed;
-    top: 0;
-    left: -250px; 
-    width: 250px;
-    height: 100%;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: left 0.3s ease; 
-    z-index: 1000;
-  }
-  
-  .canvas-navbar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .canvas-navbar li {
-    background-color: #111;
-    text-align: center;
-  }
-  
- .canvas-navbar a, .canvas-navbar p {
-    color: white;
-    padding: 20px;
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: left 0.3s ease;
+  z-index: 1000;
 }
-  
-  .canvas-navbar a:hover, .canvas-navbar p:hover {
-    background-color: #575757;
-  }
-  
-  .canvas-button {
-    display: none;
-    width: 10%;
-    height: 40%;
-    text-align: left;
-    font-size: 30px;
-    background-color: rgb(155, 207, 96);
-    color: white;
-    padding: auto;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 2000; 
-  }
-  
+
+.canvas-navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.canvas-navbar li {
+  background-color: #111;
+  text-align: center;
+}
+
+.canvas-navbar a,
+.canvas-navbar p {
+  color: white;
+  padding: 20px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.canvas-navbar a:hover,
+.canvas-navbar p:hover {
+  background-color: #575757;
+}
+
+.canvas-button {
+  display: none;
+  width: 10%;
+  height: 40%;
+  text-align: left;
+  font-size: 30px;
+  background-color: rgb(155, 207, 96);
+  color: white;
+  padding: auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2000;
+}
 
 .navbar {
   display: flex;
@@ -415,18 +416,18 @@ td {
 
 .weatherbar {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   width: 15%;
   height: 70%;
   color: white;
-  justify-content: space-evenly; 
-  align-items: center; 
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .weatherbar dd {
   font-family: "Nanum Pen Script", cursive;
   font-size: 15px;
-  text-align: start; 
+  text-align: start;
   width: 80%;
   margin: 0;
 }
@@ -490,7 +491,6 @@ td {
 .Button-container [type="checkbox"]:enabled:hover {
   box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
 }
-
 
 .main-menu {
   display: flex;
@@ -704,10 +704,17 @@ td {
   padding: 5px 10px;
   font-size: 15px;
   font-family: sans-serif;
-  font-weight: 600; 
+  font-weight: 600;
   visibility: hidden;
   opacity: 0;
   transition: all 1s;
+}
+
+.rulebook span {
+  text-shadow:  1px 1px 0 #000,  
+              -1px -1px 0 #000,  
+              1px -1px 0 #000, 
+              -1px 1px 0 #000;
 }
 
 .game {
@@ -752,6 +759,11 @@ td {
   background-color: green;
   /* 해당 글자와 일치 */
 }
+
+.double {
+  background-color: yellow;
+} /* 답의 초성과 종성이 같음 */
+
 .partially_correct_1 {
   background-color: pink;
   /* 자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 */
@@ -779,202 +791,201 @@ td {
 }
 
 @media screen and (max-width: 800px) {
+  .input-container {
+    display: none;
+  }
 
-    .input-container {
-        display: none;
-    }
+  .nav {
+    display: none;
+  }
 
-    .nav {
-        display: none;
-    }
+  .profile {
+    width: 100%;
+    height: 90%;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    .profile {
-        width: 100%;
-        height: 90%;
-        flex-direction: column;
-        justify-content: center;
-    }
+  .Banner-image {
+    width: 30%;
+    height: 60%;
+    background-size: cover;
+  }
 
-    .Banner-image {
-        width: 30%;
-        height: 60%;
-        background-size: cover;
-    }
+  .Banner-text {
+    width: 30%;
+    height: auto;
+    font-size: 30px;
+  }
 
-    .Banner-text {
-        width: 30%;
-        height: auto;
-        font-size: 30px;
-    }
-    
-    .login-container {
-        display: flex;
-       
-    }
+  .login-container {
+    display: flex;
+  }
 
-    .login-container h1 {
-        font-size: 6px;
-    }
+  .login-container h1 {
+    font-size: 6px;
+  }
 
-    .toggle-link{
-        font-size: 4px;
-        padding: 0px;
-    }
+  .toggle-link {
+    font-size: 4px;
+    padding: 0px;
+  }
 
-    .shopcart {
-      position: fixed;
-      transform: scale(0.5); 
-      transform-origin: top left;
-      top: 10%;
-      left: 10%;  
-    }
+  .shopcart {
+    position: fixed;
+    transform: scale(0.5);
+    transform-origin: top left;
+    top: 10%;
+    left: 10%;
+  }
 
-    .weatherbar {
-        display: none;
-    }
+  .weatherbar {
+    display: none;
+  }
 
-    .canvas-button {
-        display: block; /* 모바일에서만 메뉴 버튼 보이기 */
-      }
+  .canvas-button {
+    display: block; /* 모바일에서만 메뉴 버튼 보이기 */
+  }
 
-    .Button-container {
-        text-align: end;
-    }
+  .Button-container {
+    text-align: end;
+  }
 
-    .Button-container label {
-        font-size: 10px;
-        right: 20px;
-    }
+  .Button-container label {
+    font-size: 10px;
+    right: 20px;
+  }
 
-    .main-menu {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      flex-direction: column;
-      align-items: center;
-    }
+  .Button-container [type="checkbox"]:checked::before {
+    left: 0.5em;
+  }
 
-    .main-menu h1 {
-      font-size: 20px;
-    }
+  .main-menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .menu-top {
-        display: flex;
-        margin-top: 3%;
-        width: 100%;
-        height: 50%;
-        flex-direction: column;
-      }
+  .main-menu h1 {
+    font-size: 20px;
+  }
 
-    .container-review {      
-        width: 100%;
-        height: 50%;
-        display: inline-block;
-        text-align: center;
-        margin: 0 auto;
-    }
+  .menu-top {
+    display: flex;
+    margin-top: 3%;
+    width: 100%;
+    height: 50%;
+    flex-direction: column;
+  }
 
-    .container-inline_block {
-        text-align:start;
-    }
+  .container-review {
+    width: 100%;
+    height: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-    .User-name {
-        font-size: 10px;
-      }
+  .container-inline_block {
+    text-align: start;
+  }
 
-      .time-stamp {
-        font-size: 6px;
-      }
+  .User-name {
+    font-size: 10px;
+  }
 
-    .Review-Title {
-        font-size: 12px;
-      }
+  .time-stamp {
+    font-size: 6px;
+  }
 
-    .container-youtube {
-        width: 100%;
-        height: 50%;
-        display: inline-block;
-        text-align: center;
-        margin: 0 auto;
-    }
+  .Review-Title {
+    font-size: 12px;
+  }
 
-    .Review-text {
-        font-size: 8px;
-        text-align: left;
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-bottom: 15px;
-        overflow: hidden;
-      }
+  .container-youtube {
+    width: 100%;
+    height: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-      .menu-middle {
-        display: flex;
-        margin-top: 0px;
-        width: 100%;
-        height: 50%;
-        flex-direction: column;
-      }
+  .Review-text {
+    font-size: 8px;
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
 
-      .maple-gg {       
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        margin: 0 auto;
-      }
+  .menu-middle {
+    display: flex;
+    margin-top: 0px;
+    width: 100%;
+    height: 50%;
+    flex-direction: column;
+  }
 
-      .characterBox {
-        min-width: 150px;
-        height: auto;
-        max-height: 80%;
-        display: inline-block;
-      }
+  .maple-gg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-      #characterName {
-        width: 80%;
-        font-size: 10px;
-      }
+  .characterBox {
+    min-width: 150px;
+    height: auto;
+    max-height: 80%;
+    display: inline-block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 
-      #fetchButton {
-        font-size: 10px;
-      }
+  #characterName {
+    width: 80%;
+    font-size: 10px;
+  }
 
-      .equipmentBox {
-        min-width: 150px;
-        height: auto;
-        display: none;
-        max-height: 80%;
-        overflow-y: scroll;
-        overflow-x: hidden;
-      }
+  #fetchButton {
+    font-size: 10px;
+  }
 
-      .game-container {
-        display: block;
-        width: 80%;
-        height: auto;
-        margin: 0 auto;
-        
-      }
+  .equipmentBox {
+    min-width: 150px;
+    height: auto;
+    display: none;
+    max-height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 
-      .chindle h1 {
-        text-align: center;
-        margin-bottom: 15px;
-      }
+  .game-container {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
 
-      .rulebook {
-        left: 40%;
-        width: 50%;
-        height: auto;
-        font-size: 11px;
-      }
+  .chindle h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
 
-      
- 
-
+  .rulebook {
+    left: 40%;
+    width: 50%;
+    height: auto;
+    font-size: 11px;
+  }
 }
 
 @media (orientation: portrait) {
