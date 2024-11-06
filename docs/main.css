@@ -177,6 +177,14 @@ input:focus {
   align-items: center;
 }
 
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+}
+
 .Banner-image {
   width: 100px;
   height: 100px;
@@ -215,7 +223,7 @@ input:focus {
 
 .Banner-text {
   text-align: center;
-  font-size: 60px;
+  font-size: 30px;
   font-family: "Nanum Pen Script", cursive;
   font-weight: 1000;
   color: azure;
@@ -223,11 +231,19 @@ input:focus {
   margin-top: 1%;
 }
 
+.nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 70%;
+    height: 100%;
+}
 .navbar {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
-  height: 80%;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 90%;
+  padding: 0;
 }
 
 .navbar li {
@@ -345,33 +361,33 @@ td {
 }
 
 .weatherbar {
-  display: inline-block;
-  width: 20%;
+  display: flex;
+  flex-direction: column; 
+  width: 15%;
   height: 70%;
   color: white;
+  justify-content: space-evenly; 
+  align-items: center; 
 }
 
 .weatherbar dd {
-  margin: 7%;
   font-family: "Nanum Pen Script", cursive;
-  font-size: 110%;
+  font-size: 15px;
+  text-align: start; 
+  width: 80%;
+  margin: 0;
 }
 
 .weather-icon {
-  width: 10%;
-  /* 원하는 크기로 조정 */
-  height: 10%;
-  /* 원하는 크기로 조정 */
+  width: 10px;
+  height: 10px;
 }
 
 .Button-container {
   position: relative;
-  width: 15%;
+  width: 10%;
   height: 100%;
   text-align: right;
-}
-.Button-container a {
-  text-decoration: none;
 }
 
 .Button-container label {
@@ -422,49 +438,14 @@ td {
   box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
 }
 
-.button_chim,
-.button_chzzk {
-  display: inline-block;
-  width: 25%;
-  height: 50%;
-  border: 5px solid;
-  border-radius: 20%;
-  color: white;
-  padding: 0;
-  box-shadow: 8px 5px black;
-  font-family: "Dongle", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.button_chim {
-  background-color: red;
-}
-
-.button_chzzk {
-  background-color: green;
-}
-
-.button_chim:hover {
-  background-color: darkred;
-}
-
-.button_chzzk:hover {
-  background-color: darkgreen;
-}
 
 .main-menu {
   display: flex;
   width: 70%;
   height: 100%;
   position: relative;
-  /* 절대 위치 지정 */
   top: 50%;
-  /* 세로 중앙 */
   left: 50%;
-  /* 가로 중앙 */
   transform: translate(-50%, -50%);
   flex-direction: column;
   align-items: center;
@@ -656,15 +637,6 @@ td {
   height: 100%;
 }
 
-.mini-game {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-family: "Dongle", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 .chindle {
   position: relative;
   width: 100%;
@@ -756,9 +728,14 @@ td {
 
 @media screen and (max-width: 800px) {
 
-    .Banner h1{
-        font-size: 20px;
+    .Banner h1 {
+        font-size: 10px;
     }
+
+    .profile {
+        flex-direction: column;
+    }
+  
 
     .Banner-image {
         width: 50px;
@@ -768,7 +745,7 @@ td {
     
     .login-container {
         display: flex;
-        background-color: aqua;
+       
     }
 
     .login-container h1 {
@@ -780,27 +757,63 @@ td {
         padding: 0px;
     }
 
-    .navbar {
-        background-color: palegreen;
-    }
 
     .navbar a,
     .navbar p {
       font-size: 10px;
+      vertical-align: top;
     }
 
     .weatherbar {
-        background-color: red;
+        justify-content: start;
     }
-
     .weatherbar dd {
         font-size: 10px;
     }
-  
-    .button_chim,
-    .button_chzzk {
-      font-size: 10px;
+
+    .Button-container {
+        text-align: end;
     }
+
+    .Button-container label {
+        font-size: 10px;
+        right: 20px;
+    }
+
+    .Button-container [type="checkbox"] {
+        appearance: none;
+        position: relative;
+        border: max(2px, 0.05em) solid gray;
+        border-radius: 1.25em;
+        width: 1.125em;
+        height: 0.625em;
+      }
+      
+      .Button-container [type="checkbox"]::before {
+        content: "";
+        position: absolute;
+        left: 0.1em;
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 50%;
+        transform: scale(0.8);
+        background-color: gray;
+        transition: left 250ms linear;
+      }
+      
+      .Button-container [type="checkbox"]:checked::before {
+        background-color: white;
+        left: 1em;
+      }
+      
+      .Button-container [type="checkbox"]:checked {
+        background-color: tomato;
+        border-color: tomato;
+      }
+      
+      .Button-container [type="checkbox"]:enabled:hover {
+        box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+      }
   
     .main-menu h1 {
       font-size: 15px;
@@ -818,7 +831,13 @@ td {
         width: 100%;
         height: 50%;
         display: inline-block;
+        text-align: center;
+        margin: 0 auto;
 
+    }
+
+    .container-inline_block {
+        text-align:start;
     }
 
     .User-name {
@@ -837,6 +856,8 @@ td {
         width: 100%;
         height: 50%;
         display: inline-block;
+        text-align: center;
+        margin: 0 auto;
     }
 
     .Review-text {
@@ -860,10 +881,12 @@ td {
         display: block;
         width: 100%;
         height: 100%;
+        text-align: center;
+        margin: 0 auto;
       }
 
       .characterBox {
-        min-width: 150px;
+        min-width: 130px;
         height: auto;
         display: inline-block;
       }
@@ -878,7 +901,7 @@ td {
       }
 
       .equipmentBox {
-        min-width: 150px;
+        min-width: 130px;
         height: auto;
         display: none;
         max-height: 300px;
@@ -890,6 +913,9 @@ td {
         right: 5%;
         bottom: 25%;
       }
+
+      
+ 
 
 }
 

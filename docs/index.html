@@ -135,12 +135,15 @@
       </div>
 
       <div class="Banner-container">
-        <button
-          onclick="buttonOnOff('developer-profile','block')"
-          class="Banner-image"
-        ></button>
-        <h1 class="Banner-text">친하하</h1>
-        <nav style="width: 70%; height: 100%; display: flex">
+        <div class="profile">
+            <button
+            id="btn3"
+            class="Banner-image"
+          ></button>
+          <h1 class="Banner-text">친하하</h1>
+        </div>
+        
+        <nav class="nav">
           <ul class="navbar">
             <li>
               <a href="#">인기게시글</a>
@@ -158,12 +161,14 @@
               <p id="btn1">장바구니</p>
             </li>
           </ul>
-          <dl class="weatherbar">
+        </nav>
+
+        <dl class="weatherbar">
             <dd class="place"></dd>
             <dd class="temperature"></dd>
             <dd class="description"></dd>
           </dl>
-        </nav>
+
       </div>
 
       <div class="Button-container">
@@ -171,26 +176,10 @@
           <span>다크 모드</span>
           <input class="badge" role="switch" type="checkbox" />
         </label>
-        <a href="https://www.youtube.com/channel/UCUj6rrhMTR9pipbAWBAMvUQ">
-          <button class="button_chim">
-            <p>침투부</p>
-          </button>
-        </a>
-        <a href="https://chzzk.naver.com/">
-          <button class="button_chzzk">
-            <p>치지직</p>
-          </button>
-        </a>
       </div>
     </div>
 
     <div id="profile" class="developer-profile">
-      <button
-        onclick="buttonOnOff('developer-profile','none')"
-        class="x-button"
-      >
-        x
-      </button>
       <p>
         친칠라
         <span style="font-size: 15px"> 프론트엔드 개발자 | React, Vue.js</span>
@@ -259,7 +248,7 @@
         </div>
 
         <div class="game-container">
-          <div class="mini-game">
+         
             <div class="chindle">
               <h1>미니 게임</h1>
               <div class="game">
@@ -284,7 +273,7 @@
               <p>자음과 모음 중 하나만 일치 - 보라</p>
               <p>하나도 일치하지 않음 - 빨강</p>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -335,6 +324,10 @@
           button: "#btn1",
           target: ".shopcart",
         },
+        {
+          button: "#btn3",
+          target: ".developer-profile",
+        }
       ];
 
       const fadein_buttons = [
