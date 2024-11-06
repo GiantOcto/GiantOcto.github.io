@@ -1,387 +1,470 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
-    </style>
-    <meta charset="UTF-8">
-    <title>친 하 하</title>
-    <link href="main.css" rel="stylesheet">
-</head>
+    <head>
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
+        </style>
+        <meta charset="UTF-8" />
+        <meta name="description" content="html 친하하하하하.">
+        <meta name="keywords" content="친하하,친칠라">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="cat.ico" type="image/x-icon">
+        <title>친 하 하</title>
+        <link href="main.css" rel="stylesheet" />
+    </head>
 
-<body style="background-color: #FFCC80;">
-
-<div class="Banner">
-    <div class="input-container">
-        <form id="loginForm" action="url~~~">           
-        <label for="login-username">아이디:</label>
-        <input type="text" id="login-username" placeholder="" required>
-        <label for="login-password">비밀번호:</label>
-        <input type="password" id="login-password" placeholder="" required>
-        <div class="button-container">
+  <body style="background-color: #ffcc80">
+    <div class="Banner">
+      <div class="input-container">
+        <form id="loginForm" action="url~~~">
+          <label for="login-username">아이디:</label>
+          <input
+            type="text"
+            id="login-username"
+            placeholder=""
+            required="required"
+          />
+          <label for="login-password">비밀번호:</label>
+          <input
+            type="password"
+            id="login-password"
+            placeholder=""
+            required="required"
+          />
+          <div class="button-container">
             <button type="submit" class="toggle-link">로그인</button>
             <button type="button" class="toggle-link">회원가입</button>
-            <h1 class="contactus" onclick="buttonOnOff('contactus-box','block')">고객문의</h1>
+            <h1
+              class="contactus"
+              onclick="buttonOnOff('contactus-box','block')"
+            >
+              고객문의
+            </h1>
+          </div>
+        </form>
+      </div>
+    
+
+      <div class="contactus-box">
+        <div>
+          <h1>contact us</h1>
+          <button
+            onclick="buttonOnOff('contactus-box','none')"
+            class="x-button"
+          >
+            x
+          </button>
         </div>
-        </form>  
-    </div>
 
- <div class="contactus-box">
-    <div>
-        <h1>contact us</h1>
-        <button onclick="buttonOnOff('contactus-box','none')" class="x-button">x</button>
-    </div>
-
-    <div class="contactus-input-container">
-        <form id="emailform">
+        <div class="contactus-input-container">
+          <form id="emailform">
             <label for="E-Mail">Your Email</label>
-            <input type="email" id="E-Mail" placeholder="email@example.com">
-        </form>
-    </div>
+            <input type="email" id="E-Mail" placeholder="email@example.com" />
+          </form>
+        </div>
 
-    <div class="contactus-input-container">
-        <form id="nameform">
+        <div class="contactus-input-container">
+          <form id="nameform">
             <div class="input-group">
-                <label for="firstname">First name</label>
-                <input type="text" id="firstname">
+              <label for="firstname">First name</label>
+              <input type="text" id="firstname" />
             </div>
             <div class="input-group">
-                <label for="lastname">Last name</label>
-                <input type="text" id="lastname">
+              <label for="lastname">Last name</label>
+              <input type="text" id="lastname" />
             </div>
-        </form>
-    </div>
+          </form>
+        </div>
 
-    <div class="contactus-input-container">
-        <form id="messageform">
+        <div class="contactus-input-container">
+          <form id="messageform">
             <label for="message">Message</label>
             <textarea id="message" rows="8" cols="50"></textarea>
-        </form>
-    </div>
+          </form>
+        </div>
 
-    <div class="contactus-input-container">
-        <form id="sendform">
-            <input id="check" type="checkbox"><label for="check">Subscribe</label>
+        <div class="contactus-input-container">
+          <form id="sendform">
+            <input id="check" type="checkbox" />
+            <label for="check">Subscribe</label>
             <button type="submit" class="button-send">SEND</button>
-        </form>
-    </div>
+          </form>
+        </div>
+      </div>
 
- </div>   
-
- <div class="shopcart">
-    <div class="shopcart-top"><h1>Your shopping cart </h1></div>
-    <div class="cart-box">
-    <table>
-        <tbody>
-            <tr>
+      <div class="shopcart">
+        <div class="shopcart-top">
+          <h1>Your shopping cart</h1>
+        </div>
+        <div class="cart-box">
+          <table>
+            <tbody>
+              <tr>
                 <td></td>
                 <td>ITEM</td>
                 <td>AMOUNT</td>
                 <td>PRICE</td>
                 <td>TOTAL</td>
-            </tr>
-            <tr>
-                <td><img src="camera.png" width="40px"></td>
+              </tr>
+              <tr>
+                <td><img src="camera.png" width="40px" /></td>
                 <td>카메라</td>
                 <td>1</td>
                 <td>€ 1979.00</td>
                 <td>€ 1979.00</td>
-            </tr>
-            <tr>
-                <td><img src="airpod.png" width="40px"></td>
+              </tr>
+              <tr>
+                <td><img src="airpod.png" width="40px" /></td>
                 <td>에어팟</td>
                 <td>1</td>
                 <td>€ 989.00</td>
                 <td>€ 989.00</td>
-            </tr>
-            <tr>
-                <td colspan='5'>€ 2968.00</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-
-    <div class="shopcart-bottom">
-        <a style="vertical-align: top;">Edit your shopping cart</a>
-        <button class="button-paymentmethod">Choose payment method</button>
-    </div>
- </div>
-
-    <div class="Banner-container">
-        <button onclick="buttonOnOff('developer-profile','block')" class="Banner-image"></button>
-        <h1 class="Banner-text">친하하</h1> 
-        <nav style=" width: 70%; height: 100%; display: flex;">
-            <ul class="navbar">
-                <li><a href="#">인기게시글</a></li>
-                <li><a href="#">전체게시글</a></li>
-                <li><a href="#">자유게시판</a></li>
-                <li><a href="#">이벤트</a></li>
-                <li><p id="btn1">장바구니</p></li>
-            </ul>
-              <dl class="weatherbar">
-                <dd class="place"></dd>
-                <dd class="temperature"></dd>
-                <dd class="description"></dd>      
-                
-              </dl>
-        </nav>
-    </div>
-
-    <div class="Button-container ">
-        <label>
-            <span>다크 모드</span>
-            <input class="badge" role="switch" type="checkbox" />
-        </label>
-            <a href="https://www.youtube.com/channel/UCUj6rrhMTR9pipbAWBAMvUQ">
-                <button class="button_chim">
-                    <p>침투부</p>
-                </button>
-            </a>
-            <a href="https://chzzk.naver.com/">
-                <button class="button_chzzk">
-                    <p>치지직</p>
-                </button>
-            </a>
-    </div>    
-</div>
-
-<div id="profile" class="developer-profile">
-    <button onclick="buttonOnOff('developer-profile','none')" class="x-button">x</button>
-    <p>친칠라 <span style="font-size: 15px;"> 프론트엔드 개발자 | React, Vue.js</span></p>
-    <p>E-Mail : wlsrb0922@naver.com</p>
-</div> 
-
-<div class="left-menu" >
-    <h1 class="Review-Board">실시간 제품후기</h1>
-    <div class="container-inline_block" style="vertical-align: top;">
-        <div class="kakao_profile"></div>
-        <div style="display: inline-block; vertical-align: top;">
-            <h2 class="User-name">곤돌라</h2>
-            <p class="time-stamp">1시간전</p> 
+              </tr>
+              <tr>
+                <td colspan="5">€ 2968.00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <h3 class="Review-Title">4k빔프로젝터 가성비최강으로 선택했어요</h3>
-        <p class="Review-text">4k빔프로젝터 가성비 최강으로 선택했어요 날씨가날씨인지라 요즘 마음이 싱숭생숭한게 가을타는 사람이
-           아닌 봄을 타고있었어요... 하루하루 시간이 무의미하게 흘러가는거같고 재미있는걸 찾지못해 이리저리
-           헤메는사람처럼 즐거운걸 못찾고있...
-        </p>
-        </div>  
-       
-        <h1 class="Review-Board">캐릭터 정보 조회</h1>
-<div>
-    <div class="characterBox">
-        <input type="text" id="characterName" placeholder="캐릭터 이름 입력">
-        <button id="fetchButton">조회</button>
-        <div id="character_result"></div>
-    </div> 
-    
-    <div class="equipmentBox" id="equipment">
-        <div id="equipment_result"></div>
+
+        <div class="shopcart-bottom">
+          <a style="vertical-align: top">Edit your shopping cart</a>
+          <button class="button-paymentmethod">Choose payment method</button>
+        </div>
+      </div>
+
+      <div class="Banner-container">
+        <button
+          onclick="buttonOnOff('developer-profile','block')"
+          class="Banner-image"
+        ></button>
+        <h1 class="Banner-text">친하하</h1>
+        <nav style="width: 70%; height: 100%; display: flex">
+          <ul class="navbar">
+            <li>
+              <a href="#">인기게시글</a>
+            </li>
+            <li>
+              <a href="#">전체게시글</a>
+            </li>
+            <li>
+              <a href="#">자유게시판</a>
+            </li>
+            <li>
+              <a href="#">이벤트</a>
+            </li>
+            <li>
+              <p id="btn1">장바구니</p>
+            </li>
+          </ul>
+          <dl class="weatherbar">
+            <dd class="place"></dd>
+            <dd class="temperature"></dd>
+            <dd class="description"></dd>
+          </dl>
+        </nav>
+      </div>
+
+      <div class="Button-container">
+        <label>
+          <span>다크 모드</span>
+          <input class="badge" role="switch" type="checkbox" />
+        </label>
+        <a href="https://www.youtube.com/channel/UCUj6rrhMTR9pipbAWBAMvUQ">
+          <button class="button_chim">
+            <p>침투부</p>
+          </button>
+        </a>
+        <a href="https://chzzk.naver.com/">
+          <button class="button_chzzk">
+            <p>치지직</p>
+          </button>
+        </a>
+      </div>
     </div>
-</div>
 
-</div>
-
-<div class="right-menu">
-    <div class="container-youtube">
-     <h1>금주의 추천 영상</h1>
-     <a href="https://www.youtube.com/watch?v=lyUa0ZU_4Qk" target="_blank" class="thumbnail_1"></a>
-
-     <a href="https://www.youtube.com/watch?v=j4g8HhbiPc0" target="_blank" class="thumbnail_2"></a>
-
-     <a href="https://www.youtube.com/watch?v=foKiP7CmlTo" target="_blank" class="thumbnail_3"></a>
+    <div id="profile" class="developer-profile">
+      <button
+        onclick="buttonOnOff('developer-profile','none')"
+        class="x-button"
+      >
+        x
+      </button>
+      <p>
+        친칠라
+        <span style="font-size: 15px"> 프론트엔드 개발자 | React, Vue.js</span>
+      </p>
+      <p>E-Mail : wlsrb0922@naver.com</p>
     </div>
 
-    <div class="game-container"></div>
-    <div class="mini-game">
-        <div class="chindle">
-            <h1>미니 게임</h1>
-                <div class="game">
-                    <h1 id="remainingAttempts" style="font-size: 15px; margin: 0px;">남은 횟수: 10</h1>
-                    <button id="btn2" class="mini-game-rule">규칙</button>
-                </div>
-            <input class="input text" maxlength="1">
-            <input class="input text" maxlength="1">
-            <button id="button-minigame">제출</button>
+    <div class="main-menu">
+      <div class="menu-top">
+        <div class="container-review">
+          <h1>실시간 제품후기</h1>
+          <div class="container-inline_block" style="vertical-align: top">
+            <div class="kakao_profile"></div>
+            <div style="display: inline-block; vertical-align: top">
+              <h2 class="User-name">곤돌라</h2>
+              <p class="time-stamp">1시간전</p>
+            </div>
+            <h3 class="Review-Title">4k빔프로젝터 가성비최강으로 선택했어요</h3>
+            <p class="Review-text">
+              4k빔프로젝터 가성비 최강으로 선택했어요 날씨가날씨인지라 요즘
+              마음이 싱숭생숭한게 가을타는 사람이 아닌 봄을 타고있었어요...
+              하루하루 시간이 무의미하게 흘러가는거같고 재미있는걸 찾지못해
+              이리저리 헤메는사람처럼 즐거운걸 못찾고있...
+            </p>
+          </div>
+        </div>
+
+        <div class="container-youtube">
+          <h1>금주의 추천 영상</h1>
+          <a
+            href="https://www.youtube.com/watch?v=lyUa0ZU_4Qk"
+            target="_blank"
+            class="thumbnail_1"
+          ></a>
+
+          <a
+            href="https://www.youtube.com/watch?v=j4g8HhbiPc0"
+            target="_blank"
+            class="thumbnail_2"
+          ></a>
+
+          <a
+            href="https://www.youtube.com/watch?v=foKiP7CmlTo"
+            target="_blank"
+            class="thumbnail_3"
+          ></a>
+        </div>
+      </div>
+
+      <div class="menu-middle">
+        <div class="maple-gg">
+          <h1>캐릭터 정보 조회</h1>
+          <div class="characterBox">
+            <input
+              type="text"
+              id="characterName"
+              placeholder="캐릭터 이름 입력"
+            />
+            <button id="fetchButton">조회</button>
+            <div id="character_result"></div>
+          </div>
+
+          <div class="equipmentBox" id="equipment">
+            <div id="equipment_result"></div>
+          </div>
+        </div>
+
+        <div class="game-container">
+          <div class="mini-game">
+            <div class="chindle">
+              <h1>미니 게임</h1>
+              <div class="game">
+                <h1 id="remainingAttempts" style="font-size: 15px; margin: 0px">
+                  남은 횟수: 10
+                </h1>
+                <button id="btn2" class="mini-game-rule">규칙</button>
+              </div>
+
+              <input class="input text" maxlength="1" />
+              <input class="input text" maxlength="1" />
+              <button id="button-minigame">제출</button>
+            </div>
 
             <div class="rulebook">
-                <p>정확히 일치 - 초록</p>
-                <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - 분홍</p>
-                <p>자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 - 하늘</p>
-                <p>자음과 모음 중 하나만 일치 - 보라</p>
-                <p>하나도 일치하지 않음 - 빨강</p>
+              <p>정확히 일치 - 초록</p>
+              <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - 분홍</p>
+              <p>
+                자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 -
+                하늘
+              </p>
+              <p>자음과 모음 중 하나만 일치 - 보라</p>
+              <p>하나도 일치하지 않음 - 빨강</p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    
-</div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-crossorigin="anonymous">
-</script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
 
-<script>  //다크모드 //
-    var count = 0;
-    $('.badge').on('click', function() { 
+    <script>
+      //다크모드
+      var count = 0;
+      $(".badge").on("click", function () {
         count++;
 
-        if(count % 2 == 1 ) {
-            $('.Banner').css('background-color', 'rgb(27, 36, 17)');
-            $('body').css('background-color', 'rgb(10, 10, 10)');
-            $('.left-menu h1, .right-menu h1').css('color', 'white');
+        if (count % 2 == 1) {
+          $(".Banner").css("background-color", "rgb(27, 36, 17)");
+          $("body").css("background-color", "rgb(10, 10, 10)");
+          $(".main-menu h1").css("color", "white");
+        } else {
+          $(".Banner").css("background-color", "rgb(155, 207, 96)");
+          $("body").css("background-color", "#FFCC80");
+          $(".main-menu h1").css("color", "black");
         }
-        else {
-            $('.Banner').css('background-color', 'rgb(155, 207, 96)'); 
-            $('body').css('background-color', '#FFCC80');
-            $('.left-menu h1, .right-menu h1').css('color', 'black');
+      });
+    </script>
+
+    <script type="module">
+      window.buttonOnOff = function (클래스명, 내용) {
+        var elements = document.getElementsByClassName(클래스명);
+
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.display = 내용;
         }
-    });
-    
-</script>
+      };
 
-<script type="module">
+      window.buttonToggle = function (요소) {
+        $(요소).toggleClass("show");
+      };
 
-    window.buttonOnOff = function(클래스명, 내용) {
-    var elements = document.getElementsByClassName(클래스명);
-    
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = 내용; 
+      window.buttonFadein = function (요소) {
+        $(요소).toggleClass("fadein");
+      };
+
+      const toogle_buttons = [
+        {
+          button: "#btn1",
+          target: ".shopcart",
+        },
+      ];
+
+      const fadein_buttons = [
+        {
+          button: "#btn2",
+          target: ".rulebook",
+        },
+      ];
+
+      fadein_buttons.forEach((item) => {
+        $(item.button).on("click", function () {
+          buttonFadein(item.target);
+        });
+      });
+
+      toogle_buttons.forEach((item) => {
+        $(item.button).on("click", function () {
+          buttonToggle(item.target);
+        });
+      });
+
+      $("#loginForm").on("submit", function (event) {
+        // 폼 제출 시 기본 동작을 방지
+        event.preventDefault();
+
+        // 비밀번호 길이를 체크
+        if ($("#login-password").val().length < 6) {
+          alert("비밀번호는 6자 이상입니다.");
+        } else {
+          this.submit();
         }
-    }
+      });
 
-    window.buttonToggle = function(요소) {
-    $(요소).toggleClass('show');
-    }
+      const tempSection = document.querySelector(".temperature");
+      const placeSection = document.querySelector(".place");
+      const descSection = document.querySelector(".description");
+      const API_KEY = "5eac919650d7cf8b33e02a273b7abdc6";
 
-    window.buttonFadein = function(요소) {
-    $(요소).toggleClass('fadein');
-    }
+      window.onload = () => {
+        navigator.geolocation.getCurrentPosition(success, fail);
+      };
 
-    const toogle_buttons = [
-    { button: '#btn1', target: '.shopcart' }
-    ];
+      const success = (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
 
-    const fadein_buttons = [
-    { button: '#btn2', target: '.rulebook' }
-    ];
+        getWeather(latitude, longitude);
+      };
 
-    fadein_buttons.forEach(item => {
-    $(item.button).on('click', function() {
-        buttonFadein(item.target);
-    });
-    });
+      const fail = () => {
+        alert("좌표를 받아올 수 없음");
+      };
 
-    toogle_buttons.forEach(item => {
-    $(item.button).on('click', function() {
-        buttonToggle(item.target);
-    });
-    });
-
-    $('#loginForm').on('submit', function(event) {
-    // 폼 제출 시 기본 동작을 방지
-    event.preventDefault(); 
-
-    // 비밀번호 길이를 체크
-    if ($('#login-password').val().length < 6) {
-        alert('비밀번호는 6자 이상입니다.');
-    } else {
-        this.submit(); 
-    }
-    });
-
-    const tempSection = document.querySelector('.temperature');
-    const placeSection = document.querySelector('.place');
-    const descSection = document.querySelector('.description');
-    const API_KEY = '5eac919650d7cf8b33e02a273b7abdc6'; 
-
-
-    window.onload = () => {
-            navigator.geolocation.getCurrentPosition(success, fail);
-        };
-
-    const success = (position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-
-            getWeather(latitude, longitude);
-        };
-
-    const fail = () => {
-            alert("좌표를 받아올 수 없음");
-        };
-
-    const getWeather = (lat, lon) => {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(json => {
-                    const temperature = json.main.temp; 
-                    const place = json.name; 
-                    const description = json.weather[0].description; 
-                    const icon = json.weather[0].icon;
-                    const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
-                    tempSection.innerText = `현재 기온: ${temperature}°C`;
-                    placeSection.innerText = `위치: ${place}`;
-                    descSection.innerHTML = `날씨: ${description} <img src="${iconURL}" alt="날씨 아이콘" class="weather-icon">`;              
-                })
-                .catch(error => {
-                    alert("날씨 정보를 가져오는 데 오류가 발생했습니다.");
-                    console.error('API 호출 중 오류:', error);
-                });
-        };
-
-        const apiKey = 'test_c7337b0ef3b66f24b010dac01b1ece2abc7e159a1ea2b239b382cbe52ac74502efe8d04e6d233bd35cf2fabdeb93fb0d';
-
-document.getElementById('fetchButton').onclick = function() {
-    const characterName = document.getElementById('characterName').value;
-    const encodedName = encodeURIComponent(characterName);
-    const idUrl = `https://open.api.nexon.com/maplestory/v1/id?character_name=${encodedName}`;
-
-    // 1단계: 캐릭터 이름으로 OCID 검색
-    fetch(idUrl, {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            'x-nxopen-api-key': apiKey,
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // OCID 추출
-        const ocid = data.ocid;
-        if (!ocid) {
-            throw new Error('OCID를 찾을 수 없습니다.');
-        }
-        
-        // 2단계: OCID로 캐릭터 정보 검색
-        const characterInfoUrl = `https://open.api.nexon.com/maplestory/v1/character/basic?ocid=${ocid}`;
-        
-        return fetch(characterInfoUrl, {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                'x-nxopen-api-key': apiKey,
-            }
-        }).then(response => {
+      const getWeather = (lat, lon) => {
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`
+        )
+          .then((response) => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
-        }).then(characterData => {
-            // 결과를 화면에 표시
-            const resultDiv = document.getElementById('character_result');
-            resultDiv.innerHTML = `
+          })
+          .then((json) => {
+            const temperature = json.main.temp;
+            const place = json.name;
+            const description = json.weather[0].description;
+            const icon = json.weather[0].icon;
+            const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
+            tempSection.innerText = `현재 기온: ${temperature}°C`;
+            placeSection.innerText = `위치: ${place}`;
+            descSection.innerHTML = `날씨: ${description} <img src="${iconURL}" alt="날씨 아이콘" class="weather-icon">`;
+          })
+          .catch((error) => {
+            alert("날씨 정보를 가져오는 데 오류가 발생했습니다.");
+            console.error("API 호출 중 오류:", error);
+          });
+      };
+
+      const apiKey =
+        "test_c7337b0ef3b66f24b010dac01b1ece2abc7e159a1ea2b239b382cbe52ac74502efe8d04e6" +
+        "d233bd35cf2fabdeb93fb0d";
+
+      document.getElementById("fetchButton").onclick = function () {
+        const characterName = document.getElementById("characterName").value;
+        const encodedName = encodeURIComponent(characterName);
+        const idUrl = `https://open.api.nexon.com/maplestory/v1/id?character_name=${encodedName}`;
+
+        // 1단계: 캐릭터 이름으로 OCID 검색
+        fetch(idUrl, {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            "x-nxopen-api-key": apiKey,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // OCID 추출
+            const ocid = data.ocid;
+            if (!ocid) {
+              throw new Error("OCID를 찾을 수 없습니다.");
+            }
+
+            // 2단계: OCID로 캐릭터 정보 검색
+            const characterInfoUrl = `https://open.api.nexon.com/maplestory/v1/character/basic?ocid=${ocid}`;
+
+            return fetch(characterInfoUrl, {
+              method: "GET",
+              headers: {
+                accept: "application/json",
+                "x-nxopen-api-key": apiKey,
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+                return response.json();
+              })
+              .then((characterData) => {
+                // 결과를 화면에 표시
+                const resultDiv = document.getElementById("character_result");
+                resultDiv.innerHTML = `
                 <p>이름: ${characterData.character_name}</p>
                 <p>서버: ${characterData.world_name}</p>
                 <p>성별: ${characterData.character_gender}</p>
@@ -390,239 +473,288 @@ document.getElementById('fetchButton').onclick = function() {
                 <img src="${characterData.character_image}" alt="${characterData.character_name}" />
             `;
 
-            // 3단계: OCID로 장비 정보 검색
-            const equipmentUrl = `https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=${ocid}`;
-            return fetch(equipmentUrl, {
-                method: 'GET',
-                headers: {
-                    'accept': 'application/json',
-                    'x-nxopen-api-key': apiKey,
+                // 3단계: OCID로 장비 정보 검색
+                const equipmentUrl = `https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=${ocid}`;
+                return fetch(equipmentUrl, {
+                  method: "GET",
+                  headers: {
+                    accept: "application/json",
+                    "x-nxopen-api-key": apiKey,
+                  },
+                });
+              })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
                 }
-            });
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        }).then(equipmentData => {
-            // 장비 정보 처리
-            const equipmentDiv = document.getElementById('equipment_result');
-            const equipmentBox = document.getElementById('equipment');
+                return response.json();
+              })
+              .then((equipmentData) => {
+                // 장비 정보 처리
+                const equipmentDiv =
+                  document.getElementById("equipment_result");
+                const equipmentBox = document.getElementById("equipment");
 
-            // 장비 정보를 지우고 새로 추가
-            equipmentDiv.innerHTML = ''; // 이전 정보를 클리어
+                // 장비 정보를 지우고 새로 추가
+                equipmentDiv.innerHTML = ""; // 이전 정보를 클리어
 
-            // item_equipment 배열에서 각 아이템 정보 출력
-            equipmentData.item_equipment.forEach(item => {
-                equipmentDiv.innerHTML += `
+                // item_equipment 배열에서 각 아이템 정보 출력
+                equipmentData.item_equipment.forEach((item) => {
+                  equipmentDiv.innerHTML += `
                     <div>
                         <h3>${item.item_equipment_part}</h3>
                         <p>이름: ${item.item_name}</p>
                         <img src="${item.item_icon}" alt="${item.item_name}" />                       
                     </div>
                 `;
-            });
+                });
 
-            equipmentBox.style.display = 'inline-block';
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-        document.getElementById('character_result').innerHTML = `<p>오류 발생: ${error.message}</p>`;
-        document.getElementById('equipment_result').innerHTML = `<p>오류 발생: ${error.message}</p>`;
-    });
-};
+                equipmentBox.style.display = "inline-block";
+              });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            document.getElementById(
+              "character_result"
+            ).innerHTML = `<p>오류 발생: ${error.message}</p>`;
+            document.getElementById(
+              "equipment_result"
+            ).innerHTML = `<p>오류 발생: ${error.message}</p>`;
+          });
+      };
 
-// 미니 게임 파트
-import { getRandomWord } from './words.js';
+      // 미니 게임 파트
+      import { getRandomWord } from "./words.js";
 
-var 답 = ' '; // 정답
+      var 답 = " "; // 정답
 
-var attempts = 0; // 제출 기회를 카운트하는 변수
-var maxAttempts = 10; // 최대 제출 기회
+      var attempts = 0; // 제출 기회를 카운트하는 변수
+      var maxAttempts = 10; // 최대 제출 기회
 
-function updateRemainingAttempts() {
-    document.getElementById('remainingAttempts').innerHTML = '남은 횟수: ' + (maxAttempts - attempts);
-}
+      function updateRemainingAttempts() {
+        document.getElementById("remainingAttempts").innerHTML =
+          "남은 횟수: " + (maxAttempts - attempts);
+      }
 
-function displayRandomWord() {
-            답 = getRandomWord(); // 랜덤 단어를 변수에 저장    
-            console.log(답);
-        }
+      function displayRandomWord() {
+        답 = getRandomWord(); // 랜덤 단어를 변수에 저장
+        console.log(답);
+      }
 
-        document.addEventListener('DOMContentLoaded', function() {
-    displayRandomWord(); // 페이지 로드 시 단어를 표시
-    setInterval(displayRandomWord, 3600000); // 1시간마다 단어를 변경
-});    
+      document.addEventListener("DOMContentLoaded", function () {
+        displayRandomWord(); // 페이지 로드 시 단어를 표시
+        setInterval(displayRandomWord, 3600000); // 1시간마다 단어를 변경
+      });
 
-document.getElementById('button-minigame').addEventListener('click', function() {
-    if (attempts >= maxAttempts) {
-        alert('더 이상 제출할 수 없습니다. 최대 제출 기회를 초과했습니다.'); // 제출 기회 초과 메시지
-        return; // 함수 종료
-    }
+      document
+        .getElementById("button-minigame")
+        .addEventListener("click", function () {
+          if (attempts >= maxAttempts) {
+            alert("더 이상 제출할 수 없습니다. 최대 제출 기회를 초과했습니다."); // 제출 기회 초과 메시지
+            return; // 함수 종료
+          }
 
-    var inputs = document.querySelectorAll('.input');
-    // 이전 결과 지우기
+          var inputs = document.querySelectorAll(".input");
+          // 이전 결과 지우기 정답을 초성, 중성, 종성으로 쪼개기
+          var 답결과 = splitHangul(답);
+          var 답초성 = 답결과.consonants;
+          var 답중성 = 답결과.vowels;
+          var 답종성 = 답결과.finalConsonants;
 
+          // 입력 값 비교
+          for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.remove(
+              "correct",
+              "partially_correct_1",
+              "partially_correct_2",
+              "one_match",
+              "reverse_match",
+              "wrong"
+            ); // 이전 클래스 제거
 
-    // 정답을 초성, 중성, 종성으로 쪼개기
-    var 답결과 = splitHangul(답);
-    var 답초성 = 답결과.consonants;
-    var 답중성 = 답결과.vowels;
-    var 답종성 = 답결과.finalConsonants;
+            var inputWord = inputs[i].value; // 현재 입력 필드의 값
+            var input결과 = splitHangul(inputWord); // 현재 입력 값을 쪼개서 저장
 
-    // 입력 값 비교
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].classList.remove('correct', 'partially_correct_1', 'partially_correct_2', 'one_match', 'reverse_match', 'wrong'); // 이전 클래스 제거
+            let currentColor = "wrong"; // 기본 색상은 빨간색 (오답)
 
-        var inputWord = inputs[i].value; // 현재 입력 필드의 값
-        var input결과 = splitHangul(inputWord); // 현재 입력 값을 쪼개서 저장
+            // 초성, 중성, 종성을 비교
+            const 초성일치 = input결과.consonants[0] === 답초성[i];
+            const 중성일치 = input결과.vowels[0] === 답중성[i];
+            const 종성일치 =
+              input결과.finalConsonants[0] === 답종성[i] &&
+              input결과.finalConsonants[0] !== "" &&
+              답종성[i] !== "";
+            const 종성이없음 =
+              답종성[i] === "" && input결과.finalConsonants[0] === "";
+            const 자음일치 =
+              input결과.finalConsonants[0] === 답초성[i] ||
+              input결과.consonants[0] === 답종성[i];
+            const 일치개수 =
+              (초성일치 ? 1 : 0) +
+              (중성일치 ? 1 : 0) +
+              (종성일치 ? 1 : 0) +
+              (자음일치 ? 1 : 0);
 
-        let currentColor = 'wrong'; // 기본 색상은 빨간색 (오답)
+            // 조건에 따른 색상 설정
+            if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
+              currentColor = "correct"; // 모든 것이 일치 (정답)
+            } else if (일치개수 >= 2 && 초성일치) {
+              currentColor = "partially_correct_1"; // 초성이 일치하고 자음 또는 모음 2개 이상 일치
+            } else if (일치개수 >= 2 && !초성일치) {
+              currentColor = "partially_correct_2"; // 초성이 불일치하고 자음 또는 모음 2개 이상 일치
+            } else if (일치개수 === 1) {
+              currentColor = "one_match"; // 오직 하나만 일치
+            } else {
+              currentColor = "wrong"; // 모든 것이 불일치
+            }
+            console.log("초성일치: ", 초성일치);
+            console.log("중성일치: ", 중성일치);
+            console.log("종성일치: ", 종성일치);
+            console.log("종성이없음: ", 종성이없음);
+            console.log("자음일치:", 자음일치);
+            console.log(일치개수);
 
-        // 초성, 중성, 종성을 비교
-        const 초성일치 = input결과.consonants[0] === 답초성[i];
-        const 중성일치 = input결과.vowels[0] === 답중성[i];
-        const 종성일치 = input결과.finalConsonants[0] === 답종성[i] && (input결과.finalConsonants[0] !== '' && 답종성[i] !== '');
-        const 종성이없음 = 답종성[i] === '' && input결과.finalConsonants[0] === '';
-        const 자음일치 = input결과.finalConsonants[0] === 답초성[i] || input결과.consonants[0] === 답종성[i]
-        const 일치개수 = (초성일치 ? 1 : 0) + (중성일치 ? 1 : 0) + (종성일치 ? 1 : 0) + (자음일치 ? 1 : 0);
+            // 현재 입력 필드에 해당 색상 클래스 추가
+            inputs[i].classList.add(currentColor);
+            inputs[i].classList.remove("input");
+          }
 
+          // 제출 기회 증가
+          attempts++;
+          updateRemainingAttempts(); // 남은 횟수 업데이트
 
-        // 조건에 따른 색상 설정
-        if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
-    currentColor = 'correct'; // 모든 것이 일치 (정답)
-    } else if (일치개수 >= 2 && 초성일치) {
-    currentColor = 'partially_correct_1'; // 초성이 일치하고 자음 또는 모음 2개 이상 일치
-    } else if (일치개수 >= 2 && !초성일치) {
-    currentColor = 'partially_correct_2'; // 초성이 불일치하고 자음 또는 모음 2개 이상 일치
-    } else if (일치개수 === 1) {
-    currentColor = 'one_match'; // 오직 하나만 일치
-    } else {
-    currentColor = 'wrong'; // 모든 것이 불일치
-    }
-    console.log("초성일치: ", 초성일치);
-    console.log("중성일치: ", 중성일치);
-    console.log("종성일치: ", 종성일치);
-    console.log("종성이없음: ", 종성이없음);
-    console.log("자음일치:", 자음일치);
-    console.log(일치개수);
-
-
-        // 현재 입력 필드에 해당 색상 클래스 추가
-        inputs[i].classList.add(currentColor);
-        inputs[i].classList.remove('input');
-    }
-
-    // 제출 기회 증가
-    attempts++;
-    updateRemainingAttempts(); // 남은 횟수 업데이트
-
-    // 새로운 입력 필드 추가
-    var template = `<div>
+          // 새로운 입력 필드 추가
+          var template = `<div>
         <input class="input text" maxlength="1">
         <input class="input text" maxlength="1">
     </div>`;
-    document.querySelector('.chindle').insertAdjacentHTML('beforeend', template);
+          document
+            .querySelector(".chindle")
+            .insertAdjacentHTML("beforeend", template);
 
-    // 새 입력 필드에 이벤트 리스너 추가
-    addInputListeners();
-});
-
-// 입력 필드의 길이를 1자로 제한하는 함수
-function addInputListeners() {
-    var inputs = document.querySelectorAll('.input');
-
-    inputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            if (input.value.length > 1) {
-                input.value = input.value.charAt(0); // 1자 이상 입력할 수 없도록 제한
-            }
+          // 새 입력 필드에 이벤트 리스너 추가
+          addInputListeners();
         });
-    });
-}
 
-// 한글의 초성, 중성, 종성을 분리하는 함수
-function splitHangul(hangul) {
-    const consonants = [];
-    const vowels = [];
-    const finalConsonants = []; // 종성을 저장할 배열
+      // 입력 필드의 길이를 1자로 제한하는 함수
+      function addInputListeners() {
+        var inputs = document.querySelectorAll(".input");
 
-    for (let char of hangul) {
-        const code = char.charCodeAt(0);
-        // 한글 음절의 유니코드 범위
-        if (code >= 0xAC00 && code <= 0xD7A3) {
-            const base = code - 0xAC00;
+        inputs.forEach(function (input) {
+          input.addEventListener("input", function () {
+            if (input.value.length > 1) {
+              input.value = input.value.charAt(0); // 1자 이상 입력할 수 없도록 제한
+            }
+          });
+        });
+      }
+
+      // 한글의 초성, 중성, 종성을 분리하는 함수
+      function splitHangul(hangul) {
+        const consonants = [];
+        const vowels = [];
+        const finalConsonants = []; // 종성을 저장할 배열
+
+        for (let char of hangul) {
+          const code = char.charCodeAt(0);
+          // 한글 음절의 유니코드 범위
+          if (code >= 0xac00 && code <= 0xd7a3) {
+            const base = code - 0xac00;
             const cho = Math.floor(base / (21 * 28)); // 초성 인덱스
             const jung = Math.floor((base % (21 * 28)) / 28); // 중성 인덱스
             const jong = base % 28; // 종성 인덱스
 
             // 정규화 적용
-            const normalizedCho = normalizeConsonant(String.fromCharCode(0x1100 + cho)); // 초성 정규화
+            const normalizedCho = normalizeConsonant(
+              String.fromCharCode(0x1100 + cho)
+            ); // 초성 정규화
             consonants.push(normalizedCho); // 정규화된 초성 추가
             vowels.push(String.fromCharCode(0x1161 + jung)); // 중성 추가
             if (jong > 0) {
-                const normalizedJong = normalizeConsonant(String.fromCharCode(0x11A7 + jong)); // 종성 정규화
-                finalConsonants.push(normalizedJong); // 정규화된 종성 추가
+              const normalizedJong = normalizeConsonant(
+                String.fromCharCode(0x11a7 + jong)
+              ); // 종성 정규화
+              finalConsonants.push(normalizedJong); // 정규화된 종성 추가
             } else {
-                finalConsonants.push(''); // 종성이 없는 경우 빈 문자열 추가
+              finalConsonants.push(""); // 종성이 없는 경우 빈 문자열 추가
             }
-        } else {
+          } else {
             // 한글이 아닐 경우
             consonants.push(char); // 다른 문자는 그대로 추가
+          }
         }
-    }
 
-    return { consonants, vowels, finalConsonants }; // 초성, 중성, 종성을 반환
-}
+        return { consonants, vowels, finalConsonants }; // 초성, 중성, 종성을 반환
+      }
 
+      function normalizeConsonant(consonant) {
+        // 모든 자음을 같은 값으로 정규화
+        const normalizedMap = {
+          ㄱ: "ㄱ",
+          ᄀ: "ㄱ", // 기역
+          ㄲ: "ㄲ",
+          ᄁ: "ㄲ", // 쌍기역
+          ㄴ: "ㄴ",
+          ᄂ: "ㄴ", // 니은
+          ㄷ: "ㄷ",
+          ᄃ: "ㄷ", // 디귿
+          ㄸ: "ㄸ",
+          ᄃᄃ: "ㄸ", // 쌍디귿
+          ㄹ: "ㄹ",
+          ᄅ: "ㄹ", // 리을
+          ㅁ: "ㅁ",
+          ᄆ: "ㅁ", // 미음
+          ㅂ: "ㅂ",
+          ᄇ: "ㅂ", // 비읍
+          ㅃ: "ㅃ",
+          ᄈ: "ㅃ", // 쌍비읍
+          ㅅ: "ㅅ",
+          ᄉ: "ㅅ", // 시옷
+          ㅆ: "ㅆ",
+          ᄊ: "ㅆ", // 쌍시옷
+          ㅇ: "ㅇ", // 이응
+          ㅈ: "ㅈ",
+          ᄌ: "ㅈ", // 지읒
+          ㅉ: "ㅉ",
+          ᄏ: "ㅉ", // 쌍지읒
+          ㅊ: "ㅊ",
+          ᄎ: "ㅊ", // 치읓
+          ㅋ: "ㅋ", // 키읔
+          ㅌ: "ㅌ", // 티읕
+          ㅍ: "ㅍ", // 피읖
+          ㅎ: "ㅎ", // 히읗
+          // 종성 정규화 추가
+          ᆨ: "ㄱ",
+          ᄀ: "ㄱ", // 기역
+          ᆩ: "ㄲ",
+          ᄁ: "ㄲ", // 쌍기역
+          ᆫ: "ㄴ",
+          ᄂ: "ㄴ", // 니은
+          ᆮ: "ㄷ",
+          ᄃ: "ㄷ", // 디귿
+          ᆯ: "ㄹ",
+          ᄅ: "ㄹ", // 리을
+          ᆷ: "ㅁ",
+          ᄆ: "ㅁ", // 미음
+          ᆸ: "ㅂ",
+          ᄇ: "ㅂ", // 비읍
+          ᆺ: "ㅅ",
+          ᄉ: "ㅅ", // 시옷
+          ᆻ: "ㅆ",
+          ᄊ: "ㅆ", // 쌍시옷
+          ᆼ: "ㅇ", // 이응
+          ᆾ: "ㅊ", // 지읒
+          ᆽ: "ㅈ", // 지읒
+          ᆿ: "ㅋ", // 키읔
+          ᇀ: "ㅌ", // 티읕
+          ᇁ: "ㅍ", // 피읖
+          ᇂ: "ㅎ", // 히읗
+        };
+        return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
+      }
 
-function normalizeConsonant(consonant) {
-    // 모든 자음을 같은 값으로 정규화
-    const normalizedMap = {
-        'ㄱ': 'ㄱ', 'ᄀ': 'ㄱ', // 기역
-        'ㄲ': 'ㄲ', 'ᄁ': 'ㄲ', // 쌍기역
-        'ㄴ': 'ㄴ', 'ᄂ': 'ㄴ', // 니은
-        'ㄷ': 'ㄷ', 'ᄃ': 'ㄷ', // 디귿
-        'ㄸ': 'ㄸ', 'ᄃᄃ': 'ㄸ', // 쌍디귿
-        'ㄹ': 'ㄹ', 'ᄅ': 'ㄹ', // 리을
-        'ㅁ': 'ㅁ', 'ᄆ': 'ㅁ', // 미음
-        'ㅂ': 'ㅂ', 'ᄇ': 'ㅂ', // 비읍
-        'ㅃ': 'ㅃ', 'ᄈ': 'ㅃ', // 쌍비읍
-        'ㅅ': 'ㅅ', 'ᄉ': 'ㅅ', // 시옷
-        'ㅆ': 'ㅆ', 'ᄊ': 'ㅆ', // 쌍시옷
-        'ㅇ': 'ㅇ', // 이응
-        'ㅈ': 'ㅈ', 'ᄌ': 'ㅈ', // 지읒
-        'ㅉ': 'ㅉ', 'ᄏ': 'ㅉ', // 쌍지읒
-        'ㅊ': 'ㅊ', 'ᄎ': 'ㅊ', // 치읓
-        'ㅋ': 'ㅋ', // 키읔
-        'ㅌ': 'ㅌ', // 티읕
-        'ㅍ': 'ㅍ', // 피읖
-        'ㅎ': 'ㅎ', // 히읗
-        // 종성 정규화 추가
-        'ᆨ': 'ㄱ', 'ᄀ': 'ㄱ', // 기역
-        'ᆩ': 'ㄲ', 'ᄁ': 'ㄲ', // 쌍기역
-        'ᆫ': 'ㄴ', 'ᄂ': 'ㄴ', // 니은
-        'ᆮ': 'ㄷ', 'ᄃ': 'ㄷ', // 디귿
-        'ᆯ': 'ㄹ', 'ᄅ': 'ㄹ', // 리을
-        'ᆷ': 'ㅁ', 'ᄆ': 'ㅁ', // 미음
-        'ᆸ': 'ㅂ', 'ᄇ': 'ㅂ', // 비읍
-        'ᆺ': 'ㅅ', 'ᄉ': 'ㅅ', // 시옷
-        'ᆻ': 'ㅆ', 'ᄊ': 'ㅆ', // 쌍시옷
-        'ᆼ': 'ㅇ', // 이응
-        'ᆾ': 'ㅊ', // 지읒
-        'ᆽ': 'ㅈ', // 지읒
-        'ᆿ': 'ㅋ', // 키읔
-        'ᇀ': 'ㅌ', // 티읕
-        'ᇁ': 'ㅍ', // 피읖
-        'ᇂ': 'ㅎ', // 히읗
-    };
-    return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
-}
-
-
-// 처음 입력 필드에 리스너를 추가합니다.
-addInputListeners();
-</script>
-</body>
+      // 처음 입력 필드에 리스너를 추가합니다.
+      addInputListeners();
+    </script>
+  </body>
 </html>
