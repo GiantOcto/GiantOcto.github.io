@@ -21,7 +21,6 @@
     <title>친 하 하</title>
     <link href="main.css" rel="stylesheet" />
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_1.0.0.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   </head>
 
@@ -31,7 +30,7 @@
 
         <div id="loginStatus"></div>
 
-        <div id="welcomeBox" style="display: none; padding: 20px; background-color: #f0f0f0; border-radius: 5px; margin-top: 20px;">
+        <div id="welcomeBox" style="display: inline-block; padding: 20px; background-color: #f0f0f0; border-radius: 5px; margin-top: 20px;">
           <p id="welcomeMessage"></p>
         </div>
 
@@ -301,28 +300,25 @@
         "https://GiantOcto.github.io/login.html" // 로그인 후 리디렉션할 URL
       );
 
-   naver_id_login.getLoginStatus(function(status) {
-        if (status) {
-            // 로그인된 상태라면 프로필 정보 가져오기
-            naver_id_login.get_naver_userprofile(naverSignInCallback);
-        } else {
-            console.log("로그인되지 않았습니다.");
-        }
-    });
+      naver_id_login.getLoginStatus(function(status) {
+  if (status) {
+    // 로그인 상태일 때 사용자 프로필 정보 가져오기
+    naver_id_login.get_naver_userprofile(naverSignInCallback);
+  } else {
+    // 로그인되지 않았으면 로그인 페이지로 리디렉션
+    window.location.href = "login.html";
+  }
+});
 
-    // 로그인 후 사용자 정보를 처리하는 콜백 함수
-    function naverSignInCallback(data) {
-        var nickname = naver_id_login.getProfileData('nickname');
-        
-        // 닉네임을 환영 메시지에 추가
-        var welcomeMessage = nickname + "님, 환영합니다!";
-        
-        // 환영 메시지 박스에 닉네임을 추가
-        $('#welcomeMessage').text(welcomeMessage);
+function naverSignInCallback(data) {
+  console.log(data); // 전체 프로필 데이터 확인
+  var nickname = data.nickname; // 사용자 닉네임
+  var email = data.email; // 사용자 이메일
 
-        // 환영 메시지 박스 표시
-        $('#welcomeBox').show();
-    }
+  // 웰컴 박스에 닉네임 띄우기
+  document.getElementById("welcomeBox").innerText = nickname + "님 환영합니다!";
+}
+
     </script>
 
     <script>
