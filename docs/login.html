@@ -38,11 +38,13 @@
       </div>
     </div>
 
+ 
     <div class="main-menu">
-      <div class="login-box">
-        <div id="naver_id_login"></div>
-      </div>
+        <div class="login-box">
+      <div id="naver_id_login"></div>
+        </div>
     </div>
+
 
     <script type="text/javascript">
       var naver_id_login = new naver_id_login(
@@ -53,12 +55,7 @@
       naver_id_login.setButton("green", 3, 40);
       naver_id_login.setDomain("https://GiantOcto.github.io/login");
       naver_id_login.setState(state);
-      function redirectToLogin() {
-        var naverLoginUrl =
-          "https://nid.naver.com/oauth2.0/authorize?client_id=1qM5KPsKYYjbsn6rre9T&response_type=code&redirect_uri=https://GiantOcto.github.io/login&state=" +
-          state;
-        window.location.href = naverLoginUrl;
-      }
+      naver_id_login.init_naver_id_login();
     </script>
   </body>
 </html>
