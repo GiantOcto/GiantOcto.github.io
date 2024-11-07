@@ -9,14 +9,24 @@
     <meta name="description" content="html 친하하하하하." />
     <meta name="keywords" content="친하하,친칠라" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link   
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="icon" href="cat.ico" type="image/x-icon" />
     <title>친 하 하</title>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="main.css" rel="stylesheet" />
   </head>
 
   <body style="background-color: #ffcc80">
     <div class="Banner">
       <div class="input-container">
+        <div id="naver_id_login"></div>
         <form id="loginForm" action="url~~~">
           <label for="login-username">아이디:</label>
           <input
@@ -238,12 +248,12 @@
 
       <div class="menu-middle">
         <div class="maple-gg">
-          <h1>캐릭터 정보 조회</h1>
+          <h1><i class="fa-brands fa-canadian-maple-leaf"></i>캐릭터 정보 조회</i></h1>
           <div class="characterBox">
             <input
               type="text"
               id="characterName"
-              placeholder="캐릭터 이름 입력"
+              placeholder="캐릭터 이름 입력"  
             />
             <button id="fetchButton">조회</button>
             <div id="character_result"></div>
@@ -270,14 +280,24 @@
           </div>
 
           <div class="rulebook">
-            <p>정확히 일치 - <span style="color: green;">초록</span></p>
-            <p>정답 글자의 초성과 종성이 같고 입력 단어에 포함됨 - <span style="color: yellow;">노랑</span></p>
-            <p>자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 - <span style="color: pink;">분홍</span></p>
+            <p>정확히 일치 - <span style="color: green">초록</span></p>
             <p>
-              자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 - <span style="color: skyblue;">하늘</span>
+              정답 글자의 초성과 종성이 같고 입력 단어에 포함됨 -
+              <span style="color: yellow">노랑</span>
             </p>
-            <p>자음과 모음 중 하나만 일치 - <span style="color: purple;">보라</span></p>
-            <p>하나도 일치하지 않음 - <span style="color: red;">빨강</span></p>
+            <p>
+              자음과 모음 중 2개 이상 일치하고 첫 자음도 일치 -
+              <span style="color: pink">분홍</span>
+            </p>
+            <p>
+              자음과 모음 중 2개 이상 일치하지만 첫 자음은 일치하지 않음 -
+              <span style="color: skyblue">하늘</span>
+            </p>
+            <p>
+              자음과 모음 중 하나만 일치 -
+              <span style="color: purple">보라</span>
+            </p>
+            <p>하나도 일치하지 않음 - <span style="color: red">빨강</span></p>
           </div>
         </div>
       </div>
@@ -606,16 +626,15 @@
             let currentColor = "wrong"; // 기본 색상은 빨간색 (오답)
 
             console.log("인풋초성:", 인풋초성[0]);
-          console.log("인풋중성:", 인풋중성[0]);
-          console.log("인풋종성:", 인풋종성[0]);
-          console.log("답초성:", 답초성[0]);
-          console.log("답중성:", 답중성[0]);
-          console.log("답종성:", 답종성[0]);
+            console.log("인풋중성:", 인풋중성[0]);
+            console.log("인풋종성:", 인풋종성[0]);
+            console.log("답초성:", 답초성[0]);
+            console.log("답중성:", 답중성[0]);
+            console.log("답종성:", 답종성[0]);
 
-
-          console.log("답초성:", 답초성[1]);
-          console.log("답중성:", 답중성[1]);
-          console.log("답종성:", 답종성[1]);
+            console.log("답초성:", 답초성[1]);
+            console.log("답중성:", 답중성[1]);
+            console.log("답종성:", 답종성[1]);
 
             // 초성, 중성, 종성을 비교
             const 초성일치 = 인풋초성[0] === 답초성[i];
@@ -625,11 +644,9 @@
               인풋종성[0] === 답종성[i] &&
               인풋종성[0] !== "" &&
               답종성[i] !== "";
-            const 종성이없음 =
-              답종성[i] === "" && 인풋종성[0] === "";
+            const 종성이없음 = 답종성[i] === "" && 인풋종성[0] === "";
             const 자음일치 =
-              인풋종성[0] === 답초성[i] ||
-              인풋초성[0] === 답종성[i];
+              인풋종성[0] === 답초성[i] || 인풋초성[0] === 답종성[i];
             const 뒤바뀜 = 인풋중성[0] === 답중성[1] || 인풋중성 === 답중성[0];
             const 일치개수 =
               (초성일치 ? 1 : 0) +
@@ -641,7 +658,7 @@
             if (초성일치 && 중성일치 && (종성일치 || 종성이없음)) {
               currentColor = "correct"; // 모든 것이 일치 (정답)
             } else if (일치개수 >= 2 && 자음동일단어) {
-              currentColor = "double";  // 정답 글자의 초성과 종성이 같고 입력 단어에 포함됨
+              currentColor = "double"; // 정답 글자의 초성과 종성이 같고 입력 단어에 포함됨
             } else if (일치개수 >= 2 && 초성일치) {
               currentColor = "partially_correct_1"; // 초성이 일치하고 자음 또는 모음 2개 이상 일치
             } else if (일치개수 >= 2 && !초성일치) {
@@ -656,7 +673,6 @@
             inputs[i].classList.add(currentColor);
             inputs[i].classList.remove("input");
           }
-
 
           // 제출 기회 증가
           attempts++;
@@ -727,30 +743,98 @@
       }
 
       function normalizeConsonant(consonant) {
-  const normalizedMap = {
-    ㄱ: "ㄱ", ᄀ: "ㄱ", ᆨ: "ㄱ", // 기역
-    ㄲ: "ㄲ", ᄁ: "ㄲ", ᆩ: "ㄲ", // 쌍기역
-    ㄴ: "ㄴ", ᄂ: "ㄴ", ᆫ: "ㄴ", // 니은
-    ㄷ: "ㄷ", ᄃ: "ㄷ", ᆮ: "ㄷ", // 디귿
-    ㄸ: "ㄸ", ᄇ: "ㅂ", ᆸ: "ㅂ", // 비읍
-    ㅂ: "ㅂ", ᄇ: "ㅂ", ᆾ: "ㅊ", // 피읖
-    ㅅ: "ㅅ", ᄉ: "ㅅ", ᆺ: "ㅅ", // 시옷
-    ㅆ: "ㅆ", ᄊ: "ㅆ", ᆻ: "ㅆ", // 쌍시옷
-    ㅇ: "ㅇ", ᄋ: "ㅇ", ᆼ: "ㅇ", // 이응
-    ㅈ: "ㅈ", ᄌ: "ㅈ", ᆽ: "ㅈ", // 지읒
-    ㅉ: "ㅉ", ᄍ: "ㅉ", ᆿ: "ㅋ", // 쌍지읒
-    ㅊ: "ㅊ", ᄎ: "ㅊ", ᆾ: "ㅊ", // 치읓
-    ㅋ: "ㅋ", ᄏ: "ㅋ", ᇀ: "ㅋ", // 키읔
-    ㅌ: "ㅌ", ᄐ: "ㅌ", ᇁ: "ㅌ", // 티읕
-    ㅍ: "ㅍ", ᄑ: "ㅍ", ᇂ: "ㅍ", // 피읖
-    ㅎ: "ㅎ", ᄒ: "ㅎ", ᇂ: "ㅎ", // 히읗
-  };
+        const normalizedMap = {
+          // 기역
+          ㄱ: "ㄱ",
+          ᄀ: "ㄱ",
+          ᆨ: "ㄱ",
+          // 쌍기역
+          ㄲ: "ㄲ",
+          ᄁ: "ㄲ",
+          ᆩ: "ㄲ",
+          // 니은
+          ㄴ: "ㄴ",
+          ᄂ: "ㄴ",
+          ᆫ: "ㄴ",
+          // 디귿
+          ㄷ: "ㄷ",
+          ᄃ: "ㄷ",
+          ᆮ: "ㄷ",
+          // 쌍디귿
+          ㄸ: "ㄸ",
+          ᄄ: "ㄸ",
+          // 리을
+          ㄹ: "ㄹ",
+          ᄅ: "ㄹ",
+          ᆯ: "ㄹ",
+          // 미음
+          ㅁ: "ㅁ",
+          ᄆ: "ㅁ",
+          ᆷ: "ㅁ",
+          // 비읍
+          ㅂ: "ㅂ",
+          ᄇ: "ㅂ",
+          ᆸ: "ㅂ",
+          // 쌍비읍
+          ㅃ: "ㅃ",
+          ᄈ: "ㅃ",
+          // 시옷
+          ㅅ: "ㅅ",
+          ᄉ: "ㅅ",
+          ᆺ: "ㅅ",
+          // 쌍시옷
+          ㅆ: "ㅆ",
+          ᄊ: "ㅆ",
+          ᆻ: "ㅆ",
+          // 이응
+          ㅇ: "ㅇ",
+          ᄋ: "ㅇ",
+          ᆼ: "ㅇ",
+          // 지읒
+          ㅈ: "ㅈ",
+          ᄌ: "ㅈ",
+          ᆽ: "ㅈ",
+          // 쌍지읒
+          ㅉ: "ㅉ",
+          ᄍ: "ㅉ",
+          // 치읓
+          ㅊ: "ㅊ",
+          ᄎ: "ㅊ",
+          ᆾ: "ㅊ",
+          // 키읔
+          ㅋ: "ㅋ",
+          ᄏ: "ㅋ",
+          ᆿ: "ㅋ",
+          // 티읕
+          ㅌ: "ㅌ",
+          ᄐ: "ㅌ",
+          ᇀ: "ㅌ",
+          // 피읖
+          ᇁ: "ㅍ",
+          ㅍ: "ㅍ",
+          ᄑ: "ㅍ",
+          // 히읗
+          ㅎ: "ㅎ",
+          ᄒ: "ㅎ",
+          ᇂ: "ㅎ",
+        };
 
-  return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
-}
+        return normalizedMap[consonant] || consonant; // 매핑된 값 반환, 없으면 원래 값 반환
+      }
 
       // 처음 입력 필드에 리스너를 추가합니다.
       addInputListeners();
     </script>
+
+<script type="text/javascript">
+  var naver_id_login = new naver_id_login("1qM5KPsKYYjbsn6rre9T", "https://giantocto.github.io/");
+  var state = naver_id_login.getUniqState();
+  naver_id_login.setButton("white", 2,40);
+  naver_id_login.setDomain("https://giantocto.github.io/");
+  naver_id_login.setState(state);
+  naver_id_login.setPopup();
+  naver_id_login.init_naver_id_login();
+</script>
+
   </body>
 </html>
