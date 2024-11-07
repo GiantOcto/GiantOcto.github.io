@@ -31,7 +31,7 @@
         <div id="loginStatus"></div>
 
         <div id="welcomeBox" style="display: inline-block; padding: 20px; background-color: #f0f0f0; border-radius: 5px; margin-top: 20px;">
-          <p id="welcomeMessage"></p>
+          <p id="welcomeMessage"> </p>
         </div>
 
           <a class="login-button" href="https://GiantOcto.github.io/login">
@@ -307,8 +307,13 @@
   function naverSignInCallback() {
     alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('nickname'));
-    alert(naver_id_login.getProfileData('age'));
+
+    var nickname = naver_id_login.getProfileData('nickname');
+
+    document.getElementById("welcomeMessage").innerHTML = nickname + "님 안녕하세요!";
   }
+
+  naver_id_login.get_naver_userprofile(naverSignInCallback);
 </script>
 
 </script>
