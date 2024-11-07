@@ -21,8 +21,8 @@
     <title>친 하 하</title>
     <link href="main.css" rel="stylesheet" />
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_1.0.0.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
   </head>
 
   <body style="background-color: #ffcc80">
@@ -300,7 +300,7 @@
         "1qM5KPsKYYjbsn6rre9T", // 네이버 클라이언트 ID
         "https://GiantOcto.github.io/login.html" // 로그인 후 리디렉션할 URL
       );
-      
+
    naver_id_login.getLoginStatus(function(status) {
         if (status) {
             // 로그인된 상태라면 프로필 정보 가져오기
