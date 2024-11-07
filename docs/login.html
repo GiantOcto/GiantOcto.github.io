@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="description" content="html 친하하하하하." />
+    <meta name="keywords" content="친하하,친칠라" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="cat.ico" type="image/x-icon" />
+    <title>친 하 하</title>
+    <script
+      type="text/javascript"
+      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+      charset="utf-8"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.11.3.min.js"
+    ></script>
+    <link href="main.css" rel="stylesheet" />
+  </head>
+
+  <body style="background-color: #ffcc80">
+    <div class="Banner Banner-login">
+      <div class="profile">
+        <button id="btn3" class="Banner-image"></button>
+        <h1 class="Banner-text">친하하</h1>
+      </div>
+    </div>
+
+ 
+    <div class="main-menu">
+        <div class="login-box">
+      <div id="naver_id_login"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+      var naver_id_login = new naver_id_login(
+        "YOUR_CLIENT_ID",
+        "YOUR_CALLBACK_URL"
+      );
+      var state = naver_id_login.getUniqState();
+      naver_id_login.setButton("green", 3, 40);
+      naver_id_login.setDomain("YOUR_SERVICE_URL");
+      naver_id_login.setState(state);
+      naver_id_login.setPopup();
+      naver_id_login.init_naver_id_login();
+    </script>
+  </body>
+</html>

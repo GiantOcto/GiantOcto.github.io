@@ -16,18 +16,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
     <link rel="icon" href="cat.ico" type="image/x-icon" />
     <title>친 하 하</title>
+    <link href="main.css" rel="stylesheet" />
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link href="main.css" rel="stylesheet" />
   </head>
 
   <body style="background-color: #ffcc80">
     <div class="Banner">
       <div class="input-container">
-        <div id="naver_id_login"></div>
-
           <div class="login-container">
             <h1
               class="contactus"
@@ -36,7 +35,7 @@
               고객문의
             </h1>
           </div>
-          
+
       </div>
 
       <button id="openCanvasButton" class="canvas-button">☰</button>
@@ -292,6 +291,20 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+
+    <script type="text/javascript">
+      var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+      // 접근 토큰 값 출력
+      alert(naver_id_login.oauthParams.access_token);
+      // 네이버 사용자 프로필 조회
+      naver_id_login.get_naver_userprofile("naverSignInCallback()");
+      // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+      function naverSignInCallback() {
+        alert(naver_id_login.getProfileData('email'));
+        alert(naver_id_login.getProfileData('nickname'));
+        alert(naver_id_login.getProfileData('age'));
+      }
+    </script>
 
     <script>
       //다크모드
@@ -809,16 +822,5 @@
       // 처음 입력 필드에 리스너를 추가합니다.
       addInputListeners();
     </script>
-
-<script type="text/javascript">
-  var naver_id_login = new naver_id_login("1qM5KPsKYYjbsn6rre9T", "https://giantocto.github.io/");
-  var state = naver_id_login.getUniqState();
-  naver_id_login.setButton("white", 2,40);
-  naver_id_login.setDomain("https://giantocto.github.io/");
-  naver_id_login.setState(state);
-  naver_id_login.setPopup();
-  naver_id_login.init_naver_id_login();
-</script>
-
   </body>
 </html>
