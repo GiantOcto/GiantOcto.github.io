@@ -39,12 +39,13 @@
       // 네이버 로그인 객체 생성
       var naver_id_login = new naver_id_login(
         "1qM5KPsKYYjbsn6rre9T", // 네이버 클라이언트 ID
-        "https://GiantOcto.github.io/html"  // 로그인 후 리디렉션할 URL
+        "https://GiantOcto.github.io"  // 로그인 후 리디렉션할 URL
       );
       
       // 로그인 버튼 설정
       var state = naver_id_login.getUniqState();
       naver_id_login.setButton("green", 3, 40);
+      naver_id_login.setDomain("https://GiantOcto.github.io/login");
       naver_id_login.setState(state);
       naver_id_login.init_naver_id_login();
 
