@@ -31,9 +31,9 @@
 
         <div id="loginStatus"></div>
 
-          <div>
-            <p class="injik">인직</p>
-          </div>
+        <div id="welcomeBox" style="display: none; padding: 20px; background-color: #f0f0f0; border-radius: 5px; margin-top: 20px;">
+          <p id="welcomeMessage"></p>
+        </div>
 
           <a class="login-button" href="https://GiantOcto.github.io/login">
             로그인
@@ -300,17 +300,29 @@
         "1qM5KPsKYYjbsn6rre9T", // 네이버 클라이언트 ID
         "https://GiantOcto.github.io/login.html" // 로그인 후 리디렉션할 URL
       );
-      // 접근 토큰 값 출력
-  naver_id_login.get_naver_userprofile("naverSignInCallback()");
-  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-  function naverSignInCallback() {
-    alert(naver_id_login.getProfileData('email'));
-    alert(naver_id_login.getProfileData('nickname'));
-    alert(naver_id_login.getProfileData('age'));
+      
+   naver_id_login.getLoginStatus(function(status) {
+        if (status) {
+            // 로그인된 상태라면 프로필 정보 가져오기
+            naver_id_login.get_naver_userprofile(naverSignInCallback);
+        } else {
+            console.log("로그인되지 않았습니다.");
+        }
+    });
 
-    $('.injik').html(naver_id_login.oauthParams.access_token);
-    
-  }
+    // 로그인 후 사용자 정보를 처리하는 콜백 함수
+    function naverSignInCallback(data) {
+        var nickname = naver_id_login.getProfileData('nickname');
+        
+        // 닉네임을 환영 메시지에 추가
+        var welcomeMessage = nickname + "님, 환영합니다!";
+        
+        // 환영 메시지 박스에 닉네임을 추가
+        $('#welcomeMessage').text(welcomeMessage);
+
+        // 환영 메시지 박스 표시
+        $('#welcomeBox').show();
+    }
     </script>
 
     <script>
