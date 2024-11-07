@@ -60,10 +60,11 @@ input:focus {
 }
 
 .input-container {
+  background-color: ;
   display: flex;
   width: 20%;
   height: 100%;
-  text-align: left;
+ align-items: end;
 }
 
 #loginForm {
@@ -86,20 +87,6 @@ input:focus {
   width: 30%;
   font-size: 100%;
   margin-right: 3%;
-}
-
-.contactus {
-  display: inline-block;
-  text-align: center;
-  width: 20%;
-  font-family: "Nanum Pen Script", cursive;
-  font-weight: 1000;
-  color: azure;
-  font-style: normal;
-  margin-top: 1%;
-  margin-left: 3%;
-  transform: scaleX(1.5);
-  cursor: pointer;
 }
 
 .contactus-box {
@@ -602,9 +589,21 @@ td {
   top: 95%;
 }
 
-.login-container {
-  width: 100%;
-  margin-top: 10px;
+.login-button {
+  display: flex;
+  background-color: #9cf3a7 ;
+  width: 60px;
+  height: 40px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25%;
+   font-family: "Dongle", sans-serif;
+  font-weight: 1000;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .main-menu h1 {

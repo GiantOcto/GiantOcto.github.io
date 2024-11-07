@@ -27,14 +27,9 @@
   <body style="background-color: #ffcc80">
     <div class="Banner">
       <div class="input-container">
-          <div class="login-container">
-            <h1
-              class="contactus"
-              onclick="buttonOnOff('contactus-box','block')"
-            >
-              고객문의
-            </h1>
-          </div>
+          <a class="login-button" href="https://GiantOcto.github.io/login">
+            로그인
+          </a>
 
       </div>
 
@@ -45,7 +40,7 @@
           <li><a href="#">인기게시글</a></li>
           <li><a href="#">전체게시글</a></li>
           <li><a href="#">자유게시판</a></li>
-          <li><a href="#">이벤트</a></li>
+          <li><P onclick="buttonOnOff('contactus-box','block')">고객문의</P></li>
           <li><p id="btn4">장바구니</p></li>
         </ul>
       </div>
@@ -156,7 +151,7 @@
               <a href="#">자유게시판</a>
             </li>
             <li>
-              <a href="#">이벤트</a>
+              <P onclick="buttonOnOff('contactus-box','block')">고객문의</P>
             </li>
             <li>
               <p id="btn1">장바구니</p>
@@ -320,7 +315,7 @@
         // 추가적인 프로필 정보를 처리하는 로직을 여기에 추가할 수 있습니다.
       }
     </script>
-    
+
     <script>
       //다크모드
       var count = 0;
