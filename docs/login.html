@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap");
-    </style>
     <meta charset="UTF-8" />
     <meta name="description" content="html 친하하하하하." />
     <meta name="keywords" content="친하하,친칠라" />
@@ -17,17 +13,12 @@
       referrerpolicy="no-referrer"
     />
     <link rel="icon" href="cat.ico" type="image/x-icon" />
-    <title>친 하 하</title>
-    <script
-      type="text/javascript"
-      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-      charset="utf-8"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-1.11.3.min.js"
-    ></script>
     <link href="main.css" rel="stylesheet" />
+    <title>친 하 하</title>
+
+    <!-- Naver Login API -->
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   </head>
 
   <body style="background-color: #ffcc80">
@@ -38,24 +29,32 @@
       </div>
     </div>
 
- 
     <div class="main-menu">
-        <div class="login-box">
-      <div id="naver_id_login"></div>
-        </div>
+      <div class="login-box">
+        <div id="naver_id_login"></div>
+      </div>
     </div>
 
-
     <script type="text/javascript">
+      // 네이버 로그인 객체 생성
       var naver_id_login = new naver_id_login(
-        "1qM5KPsKYYjbsn6rre9T",
-        "https://GiantOcto.github.io"
+        "1qM5KPsKYYjbsn6rre9T", // 네이버 클라이언트 ID
+        "https://GiantOcto.github.io/login.html"  // 로그인 후 리디렉션할 URL
       );
+      
+      // 로그인 버튼 설정
       var state = naver_id_login.getUniqState();
       naver_id_login.setButton("green", 3, 40);
-      naver_id_login.setDomain("https://GiantOcto.github.io/login");
       naver_id_login.setState(state);
       naver_id_login.init_naver_id_login();
+
+      // 로그인 상태 확인 후 리디렉션 처리
+      naver_id_login.getLoginStatus(function(status) {
+        if (status) {
+          // 로그인된 상태라면 index.html로 리디렉션
+          window.location.replace("index.html");
+        }
+      });
     </script>
   </body>
 </html>
