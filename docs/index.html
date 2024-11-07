@@ -307,7 +307,9 @@
     alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('nickname'));
     alert(naver_id_login.getProfileData('age'));
-    $('.injik').html('.acess_token');
+
+    var accessToken = sessionStorage.getItem("access_token");
+    $('.injik').html(accessToken);
     
   }
     </script>
