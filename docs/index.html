@@ -300,9 +300,29 @@
         "https://GiantOcto.github.io/" // 로그인 후 리디렉션할 URL
       );
 
-      function naverSignInCallback() {
-        console.log("Access Token:", naver_id_login.oauthParams.access_token);
-      }
+      if (naver_id_login.oauthParams.access_token) {
+            console.log("Access Token:", naver_id_login.oauthParams.access_token);
+            
+            // 사용자 프로필 정보 요청 (예시)
+            var access_token = naver_id_login.oauthParams.access_token;
+            var apiUrl = "https://openapi.naver.com/v1/nid/me";
+            $.ajax({
+                url: apiUrl,
+                type: "GET",
+                headers: {
+                    "Authorization": "Bearer " + access_token
+                },
+                success: function(response) {
+                    console.log(response);
+                    // 사용자 프로필 정보 처리
+                    var nickname = response.response.nickname;
+                    alert(nickname + "님, 환영합니다!");
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        }
 
 </script>
 
