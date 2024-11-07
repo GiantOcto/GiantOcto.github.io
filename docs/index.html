@@ -296,28 +296,16 @@
         "1qM5KPsKYYjbsn6rre9T", // 네이버 클라이언트 ID
         "https://GiantOcto.github.io/login.html" // 로그인 후 리디렉션할 URL
       );
-    
-      // 로그인 상태 확인
-      window.onload = function () {
-      // URL에서 access_token을 추출
-      var params = new URLSearchParams(window.location.hash.substring(1)); // '#' 뒤의 URL 파라미터 추출
-      var accessToken = params.get("access_token");
-
-      if (accessToken) {
-        // access_token이 있으면 로그인된 상태
-        sessionStorage.setItem("access_token", accessToken); // 세션 스토리지에 access_token 저장
-
-        // 네이버 사용자 프로필 조회
-        naver_id_login.get_naver_userprofile(function () {
-          const userName = naver_id_login.getProfileData("name");
-          document.getElementById("loginStatus").innerHTML =
-            "<p>안녕하세요, " + userName + "님! 로그인되었습니다.</p>";
-        });
-      } else {
-        // access_token이 없으면 로그인되지 않은 상태
-        document.getElementById("loginStatus").innerHTML = "<p>로그인되지 않았습니다.</p>";
-      }
-    };
+      // 접근 토큰 값 출력
+  alert(naver_id_login.oauthParams.access_token);
+  // 네이버 사용자 프로필 조회
+  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+  function naverSignInCallback() {
+    alert(naver_id_login.getProfileData('email'));
+    alert(naver_id_login.getProfileData('nickname'));
+    alert(naver_id_login.getProfileData('age'));
+  }
     </script>
 
     <script>
